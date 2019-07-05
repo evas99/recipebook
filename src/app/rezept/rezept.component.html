@@ -1,0 +1,14 @@
+
+<div class="name">{{rezeptname}}</div>
+
+<!-- hier muss ein Bild eingefügt werden -->
+<img/>
+
+<div class="zutaten">
+  <span>Zutaten</span>
+  <span *ngFor="let zutat of zutatenliste">
+    <div>{{ zutat }}</div>
+  </span>
+</div>
+
+<button>Alle Zutaten der Einkaufsliste hinzufügen.</button>
