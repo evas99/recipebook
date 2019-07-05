@@ -4,15 +4,17 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule } from '@angular/material';
+import { MatButtonModule, MatCardModule } from '@angular/material';
 import { RezeptComponent } from './rezept/rezept.component';
+import { RecipeOverviewComponent } from './recipe-overview/recipe-overview.component';
 
-const modules = [ BrowserAnimationsModule, MatButtonModule ];
+const modules = [ BrowserAnimationsModule, MatButtonModule, MatCardModule ];
 
 @NgModule({
   declarations: [
     AppComponent,
-    RezeptComponent
+    RezeptComponent,
+    RecipeOverviewComponent
   ],
   imports: [
     BrowserModule,
