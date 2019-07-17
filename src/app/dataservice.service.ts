@@ -10,6 +10,15 @@ export class DataserviceService {
   recipeSubject: BehaviorSubject<Recipe[]> = new BehaviorSubject<Recipe[]>([]);
   recipe: Observable<Recipe[]> = this.recipeSubject.asObservable();
 
+  zutatenSubject: BehaviorSubject<string[]> = new BehaviorSubject<string[]>([]);
+  zutaten: Observable<string[]> = this.zutatenSubject.asObservable();
+
+  addNewZutat(zutat: string){
+    const zutatValue = this.zutatenSubject.value;
+    zutatValue.push(zutat);
+    this.zutatenSubject.next(zutatValue);
+  }
+
   addNewRecipe(recipe: Recipe){
     const recipeValue = this.recipeSubject.value;
     recipeValue.push(recipe);
