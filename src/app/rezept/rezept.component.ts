@@ -12,8 +12,12 @@ export class RezeptComponent implements OnInit {
 
   zutatenListe: string[];
 
+  // addZutat(zutat: string){
+  //   this.dataService.addNewZutat(zutat);
+  // }
+
   rezeptname = "Mein Rezept";
-  zutatenliste = ["Mehl", "Zucker", "Milch", "Eier"];
+  // zutatenliste = ["Mehl", "Zucker", "Milch", "Eier"];
 
   ngOnInit() {
     this.dataService.zutaten.subscribe(zutaten => this.zutatenListe = zutaten);

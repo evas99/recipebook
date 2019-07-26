@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule, MatCardModule } from '@angular/material';
 import { RezeptComponent } from './rezept/rezept.component';
 import { RecipeOverviewComponent } from './recipe-overview/recipe-overview.component';
+import { ZutatenComponent } from './zutaten/zutaten.component';
 
 const modules = [ BrowserAnimationsModule, MatButtonModule, MatCardModule ];
 
@@ -14,7 +15,8 @@ const modules = [ BrowserAnimationsModule, MatButtonModule, MatCardModule ];
   declarations: [
     AppComponent,
     RezeptComponent,
-    RecipeOverviewComponent
+    RecipeOverviewComponent,
+    ZutatenComponent
   ],
   imports: [
     BrowserModule,
