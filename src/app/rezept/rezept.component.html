@@ -1,14 +1,20 @@
 
-<div class="name">{{rezeptname}}</div>
+<h2 class="name">{{rezeptname}}</h2>
 
-<!-- hier muss ein Bild eingefügt werden -->
-<img/>
+<img src="https://s14-eu5.startpage.com/cgi-bin/serveimage?url=http%3A%2F%2Ft0.gstatic.com%2Fimages%3Fq%3Dtbn%3AANd9GcT6X1w4dbHcgj_O4hByDeHOYMIdanO-dqVvcagsWlXQbfGkzmTV&sp=94b415816f3fc3f0424dc7e9df495e16&anticache=648710"/>
+
+<div class="description">
+  <h4>Beschreibung</h4>
+  <span>Hier steht eine Beschreibung.</span>
+  <h4>Zubereitung</h4>
+  <span>Hier steht die Zubereitung.</span>
+</div>
 
 <div class="zutaten">
-  <span>Zutaten</span>
+  <h4>Zutaten</h4>
   <span *ngFor="let zutat of zutatenListe">
     <div>{{ zutat }}</div>
   </span>
 </div>
 
-<button>Alle Zutaten der Einkaufsliste hinzufügen.</button>
+<button mat-button>Alle Zutaten der Einkaufsliste hinzufügen.</button>
