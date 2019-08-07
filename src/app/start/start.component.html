@@ -1,5 +1,23 @@
+<h1>This is my start page!</h1>
+
+<div>
+  <input #recName placeholder="Rezeptname" value="">
+  <p>{{recipeName}}</p>
+  <!-- <input placeholder="Kategorie">
+  <input placeholder="Test"> -->
+
+  <button mat-button (click)="addRecipe(recName.value)">Add recipe</button>
+
+  <div class="recipeButtons" *ngFor="let recipe of rezepte">
+    <button mat-button [routerLink]="['/rezept', recipe.id]" routerLinkActive="active">{{ recipe.name }}</button>
+  </div>
+
+</div>
 
 
-<p>This is my start page!</p>
 
+<!-- Just for testing, if routing works correctly!
+Todo: change this to display recipe overview, toolbar, ... -->
 <button mat-button routerLink="/rezept" routerLinkActive="active">Details</button>
+
+

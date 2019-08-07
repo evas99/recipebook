@@ -6,6 +6,7 @@ import { StartComponent } from './start/start.component';
 const routes: Routes = [
   { path: '', component: StartComponent},
   { path: 'rezept', component: RezeptComponent},
+  { path: 'rezept/:id', component:RezeptComponent }
 ];
 
 @NgModule({

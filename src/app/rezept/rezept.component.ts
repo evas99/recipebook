@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { DataserviceService } from '../dataservice.service';
+import { Recipe } from '../recipe';
+import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-rezept',
@@ -8,19 +11,32 @@ import { DataserviceService } from '../dataservice.service';
 })
 export class RezeptComponent implements OnInit {
 
-  constructor(private dataService: DataserviceService) { }
-
   zutatenListe: string[];
+  recipeListe: Recipe[];
+  actualRecipe: Recipe;
 
-  // addZutat(zutat: string){
-  //   this.dataService.addNewZutat(zutat);
-  // }
 
-  rezeptname = "Mein Rezept";
-  // zutatenliste = ["Mehl", "Zucker", "Milch", "Eier"];
+  constructor(
+    private dataService: DataserviceService,
+    private route: ActivatedRoute,
+    private location: Location
+    ) { 
+      // this.actualRecipe = this.recipeListe[0];
+      // console.log(this.actualRecipe.name);
+    }
+
+
+  public getRecipe(): Recipe {
+    const id = +this.route.snapshot.paramMap.get('id');
+    return this.dataService.getRecipe(id);
+  }
 
   ngOnInit() {
     this.dataService.zutaten.subscribe(zutaten => this.zutatenListe = zutaten);
+    this.actualRecipe = this.getRecipe();
+    // this.dataService.addNewRecipe(<Recipe>{name: "Pflaumenkuchen", id: 13});
   }
+
+  
 
 }

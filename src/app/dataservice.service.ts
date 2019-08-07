@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, of } from 'rxjs';
 import { Recipe } from './recipe';
+import { element } from 'protractor';
 
 @Injectable({
   providedIn: 'root'
@@ -25,5 +26,19 @@ export class DataserviceService {
     this.recipeSubject.next(recipeValue);
   }
 
-  constructor() { }
+  getRecipe(id: number): Recipe {
+    var recipeArray;
+    this.recipe.subscribe(el => recipeArray = el);
+    var found = recipeArray.find(function(element){
+        if (element.id == 10){
+          return element;
+        }         
+      });
+    // console.log("found: "+ JSON.stringify(found));
+    return found; 
+  }
+
+  constructor() {
+    this.addNewRecipe(<Recipe> {name: "ObservableKuchen", id: 10, img: "", zubereitung: "", zutaten: [] });
+   }
 }
