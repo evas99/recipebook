@@ -39,7 +39,8 @@ export class DataserviceService {
   }
 
   constructor() {
-    this.addNewRecipe(<Recipe> {name: "ObservableKuchen", id: 10, img: "", zubereitung: "", zutaten: [] });
+    var demoZutaten: string[] = ["Mehl", "Zucker", "Butter", "Eier"];
+    this.addNewRecipe(<Recipe> {name: "ObservableKuchen", id: 10, img: "", zubereitung: "einfach", zutaten: demoZutaten });
     var zArray: string[] = ["Mehl", "Zucker", "Eier", "Butter", "Apfel"];
     zArray.forEach(element => {
       this.addNewZutat(element);
