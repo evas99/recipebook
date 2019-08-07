@@ -1,24 +1,38 @@
 <h1>This is my start page!</h1>
 
 <div>
-  <input #recName placeholder="Rezeptname" value="">
+  <h2>Add Recipe</h2>
+
+  <input #recName placeholder="Rezeptname" value=""><br>
   <!-- <p>{{recipeName}}</p> -->
-  <input #recID placeholder="ID" value="">
-  <input #imgSrc placeholder="Image Source" value="">
-  <input #recZubereitung placeholder="Zubereitung" value="">
+  <input #recID placeholder="ID" value=""><br>
+  <input #imgSrc placeholder="Image Source" value=""><br>
+  <input #recZubereitung placeholder="Zubereitung" value=""><br>
 
   <button mat-button (click)="addRecipe(recName.value, recID.value, imgSrc.value, recZubereitung.value)">Add recipe</button>
+
+  <h2>Rezepte</h2>
 
   <div class="recipeButtons" *ngFor="let recipe of rezepte">
     <button mat-button [routerLink]="['/rezept', recipe.id]" routerLinkActive="active">{{ recipe.name }}</button>
   </div>
 
+  <h2>Add Zutat</h2>
+
+  <input #zutatString placeholder="Zutat" value=""><br>
+  <button mat-button (click)="addZutat(zutatString.value)">Add Zutat</button>
+
+  <h2>Zutaten</h2>
+
+  <div *ngFor="let zutat of zutaten">
+      <span>{{ zutat }}</span>
+  </div>
 </div>
 
 
 
 <!-- Just for testing, if routing works correctly!
 Todo: change this to display recipe overview, toolbar, ... -->
-<button mat-button routerLink="/rezept" routerLinkActive="active">Details</button>
+<!-- <button mat-button routerLink="/rezept" routerLinkActive="active">Details</button> -->
 
 
