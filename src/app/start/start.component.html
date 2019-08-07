@@ -2,11 +2,12 @@
 
 <div>
   <input #recName placeholder="Rezeptname" value="">
-  <p>{{recipeName}}</p>
-  <!-- <input placeholder="Kategorie">
-  <input placeholder="Test"> -->
+  <!-- <p>{{recipeName}}</p> -->
+  <input #recID placeholder="ID" value="">
+  <input #imgSrc placeholder="Image Source" value="">
+  <input #recZubereitung placeholder="Zubereitung" value="">
 
-  <button mat-button (click)="addRecipe(recName.value)">Add recipe</button>
+  <button mat-button (click)="addRecipe(recName.value, recID.value, imgSrc.value, recZubereitung.value)">Add recipe</button>
 
   <div class="recipeButtons" *ngFor="let recipe of rezepte">
     <button mat-button [routerLink]="['/rezept', recipe.id]" routerLinkActive="active">{{ recipe.name }}</button>

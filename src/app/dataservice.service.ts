@@ -30,7 +30,7 @@ export class DataserviceService {
     var recipeArray;
     this.recipe.subscribe(el => recipeArray = el);
     var found = recipeArray.find(function(element){
-        if (element.id == 10){
+        if (element.id == id){
           return element;
         }         
       });
