@@ -13,4 +13,4 @@
 <h4>Zutaten</h4>
 <ol><li *ngFor="let zutat of actualRecipe.zutaten">{{ zutat }}</li></ol>
 
-<button mat-button>Alle Zutaten der Einkaufsliste hinzufügen.</button>
+<button mat-button (click)="addZutatToShoppingList(actualRecipe.zutaten)">Alle Zutaten der Einkaufsliste hinzufügen.</button>

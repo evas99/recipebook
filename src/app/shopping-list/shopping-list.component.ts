@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataserviceService } from '../dataservice.service';
 
 @Component({
   selector: 'app-shopping-list',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShoppingListComponent implements OnInit {
 
-  constructor() { }
+  constructor(private dataService: DataserviceService) { }
+
+  shoppingList: string[];
+
+  addZutatToShoppingList(array: string[]){
+    this.dataService.addZutatToShoppingList(array);
+  }
 
   ngOnInit() {
+    this.dataService.shoppingList.subscribe(element => this.shoppingList = element);
   }
 
 }

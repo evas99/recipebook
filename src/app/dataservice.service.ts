@@ -14,6 +14,9 @@ export class DataserviceService {
   zutatenSubject: BehaviorSubject<string[]> = new BehaviorSubject<string[]>([]);
   zutaten: Observable<string[]> = this.zutatenSubject.asObservable();
 
+  shoppingSubject: BehaviorSubject<string[]> = new BehaviorSubject<string[]>([]);
+  shoppingList: Observable<string[]> = this.zutatenSubject.asObservable();
+
   addNewZutat(zutat: string){
     const zutatValue = this.zutatenSubject.value;
     zutatValue.push(zutat);
@@ -36,6 +39,14 @@ export class DataserviceService {
       });
     // console.log("found: "+ JSON.stringify(found));
     return found; 
+  }
+
+  addZutatToShoppingList(zutaten: string[]){
+    zutaten.forEach(element => {
+      const shoppingValue = this.shoppingSubject.value;
+      shoppingValue.push(element);
+      this.shoppingSubject.next(shoppingValue);
+    });
   }
 
   constructor() {
