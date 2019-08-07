@@ -9,6 +9,7 @@ import { RezeptComponent } from './rezept/rezept.component';
 import { RecipeOverviewComponent } from './recipe-overview/recipe-overview.component';
 import { ZutatenComponent } from './zutaten/zutaten.component';
 import { StartComponent } from './start/start.component';
+import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 
 const modules = [ BrowserAnimationsModule, MatButtonModule, MatCardModule, MatSelectModule, MatToolbarModule ];
 
@@ -18,7 +19,8 @@ const modules = [ BrowserAnimationsModule, MatButtonModule, MatCardModule, MatSe
     RezeptComponent,
     RecipeOverviewComponent,
     ZutatenComponent,
-    StartComponent
+    StartComponent,
+    ShoppingListComponent
   ],
   imports: [
     BrowserModule,

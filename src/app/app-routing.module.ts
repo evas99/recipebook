@@ -3,13 +3,15 @@ import { Routes, RouterModule } from '@angular/router';
 import { RezeptComponent } from './rezept/rezept.component';
 import { StartComponent } from './start/start.component';
 import { ZutatenComponent } from './zutaten/zutaten.component';
+import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 
 const routes: Routes = [
   { path: '', component: StartComponent},
   { path: 'start', component: StartComponent},
   { path: 'rezept', component: RezeptComponent},
   { path: 'rezept/:id', component:RezeptComponent},
-  { path: 'zutaten', component: ZutatenComponent}
+  { path: 'zutaten', component: ZutatenComponent},
+  { path: 'shoppingList', component: ShoppingListComponent}
 ];
 
 @NgModule({
