@@ -4,13 +4,13 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule, MatCardModule } from '@angular/material';
+import { MatButtonModule, MatCardModule, MatSelectModule } from '@angular/material';
 import { RezeptComponent } from './rezept/rezept.component';
 import { RecipeOverviewComponent } from './recipe-overview/recipe-overview.component';
 import { ZutatenComponent } from './zutaten/zutaten.component';
 import { StartComponent } from './start/start.component';
 
-const modules = [ BrowserAnimationsModule, MatButtonModule, MatCardModule ];
+const modules = [ BrowserAnimationsModule, MatButtonModule, MatCardModule, MatSelectModule ];
 
 @NgModule({
   declarations: [

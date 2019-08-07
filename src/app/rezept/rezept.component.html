@@ -10,11 +10,14 @@
   <span>{{ actualRecipe.zubereitung }}</span>
 </div>
 
-<div class="zutaten">
+<h4>Zutaten</h4>
+<span *ngFor="let zutat of actualRecipe.zutaten">{{ zutat }}</span>
+
+<!-- <div class="zutaten">
   <h4>Zutaten</h4>
   <span *ngFor="let zutat of zutatenListe">
     <div>{{ zutat }}</div>
   </span>
-</div>
+</div> -->
 
 <button mat-button>Alle Zutaten der Einkaufsliste hinzufügen.</button>

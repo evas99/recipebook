@@ -15,8 +15,9 @@ export class StartComponent implements OnInit {
   rezepte: Recipe[];
   zutaten: string[];
 
-  addRecipe(recName, recID, imgSrc, recZubereitung){
-    this.rezepte.push(<Recipe>{name: recName, id: recID, img: imgSrc, zubereitung: recZubereitung});
+  addRecipe(recName, recID, imgSrc, recZubereitung, zutat){
+    var zutatArray: string[] = [zutat];
+    this.rezepte.push(<Recipe>{name: recName, id: recID, img: imgSrc, zubereitung: recZubereitung, zutaten: zutatArray });
     this.rezepte.forEach(element => {
       console.log(element.name);
     });
