@@ -7,6 +7,25 @@
     <button mat-button [routerLink]="['/rezept', recipe.id]" routerLinkActive="active">{{ recipe.name }}</button>
   </div>
 
+  <div class="cardDiv">
+      <mat-card class="recipeCard" *ngFor="let recipe of rezepte">
+        <mat-card-header>
+          <mat-card-title>{{ recipe.name }}</mat-card-title>
+          <mat-card-subtitle>Kategorie</mat-card-subtitle>
+        </mat-card-header>
+        <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
+        <img mat-card-image src="https://s14-eu5.startpage.com/cgi-bin/serveimage?url=http%3A%2F%2Ft0.gstatic.com%2Fimages%3Fq%3Dtbn%3AANd9GcT6X1w4dbHcgj_O4hByDeHOYMIdanO-dqVvcagsWlXQbfGkzmTV&sp=94b415816f3fc3f0424dc7e9df495e16&anticache=648710">
+        <!-- <mat-card-content>
+          <ol>
+            <li>{{ zutat }}</li>
+          </ol>
+        </mat-card-content> -->
+        <mat-card-actions>
+            <button mat-button [routerLink]="['/rezept', recipe.id]" routerLinkActive="active">Details</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+
   <h4>Add Recipe</h4>
 
   <input #recName placeholder="Rezeptname" value=""><br>
@@ -54,7 +73,7 @@
         </mat-option>
       </mat-select>
     </mat-form-field><br>
-    
+
   <button mat-button (click)="addZutat(zutatName.value, zutatUnit.value, selectedCat)">Add Zutat</button>
 
 
