@@ -31,9 +31,16 @@ export class RezeptComponent implements OnInit {
     return this.dataService.getRecipe(id);
   }
 
-  addZutatToShoppingList(array: string[]){
-    this.dataService.addZutatToShoppingList(array);
+  addZutatToShoppingList(){
+    console.log("adding Zutat to Shopping List: ");
+    this.actualRecipe.zutaten.forEach(el => console.log(el))
+    this.dataService.addZutatToShoppingList(this.actualRecipe.zutaten);
   }
+
+  // addZutatToShoppingList(array: string[]){
+  //   this.dataService.addZutatToShoppingList(array);
+  //   console.log("adding Zutat to Shopping List: " + array[0]);
+  // }
 
   ngOnInit() {
     this.dataService.zutaten.subscribe(zutaten => this.zutatenListe = zutaten);

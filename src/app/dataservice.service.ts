@@ -23,9 +23,16 @@ export class DataserviceService {
     this.zutatenSubject.next(zutatValue);
   }
 
-  addNewRecipe(recipe: Recipe){
+  getIndexForRecipe(recipeOb: Observable<Recipe[]>): number {
+    var recipeAr;
+    recipeOb.subscribe(t => recipeAr = t);
+    return recipeAr.length;
+  }
+
+  addNewRecipe(addingRecipe: Recipe){
+    addingRecipe.id = this.getIndexForRecipe(this.recipe);
     const recipeValue = this.recipeSubject.value;
-    recipeValue.push(recipe);
+    recipeValue.push(addingRecipe);
     this.recipeSubject.next(recipeValue);
   }
 
@@ -37,12 +44,15 @@ export class DataserviceService {
           return element;
         }         
       });
-    // console.log("found: "+ JSON.stringify(found));
     return found; 
   }
 
-  addZutatToShoppingList(zutaten: string[]){
-    zutaten.forEach(element => {
+  addZutatToShoppingList(shoppingArray: string[]){
+    console.log("Hello from adding Zutat to Shopping List in DataService");
+    shoppingArray.forEach(element => {
+      console.log(element);
+    });
+    shoppingArray.forEach(element => {
       const shoppingValue = this.shoppingSubject.value;
       shoppingValue.push(element);
       this.shoppingSubject.next(shoppingValue);
@@ -50,11 +60,10 @@ export class DataserviceService {
   }
 
   constructor() {
-    var demoZutaten: string[] = ["Mehl", "Zucker", "Butter", "Eier"];
-    this.addNewRecipe(<Recipe> {name: "ObservableKuchen", id: 10, img: "", zubereitung: "einfach", zutaten: demoZutaten });
-    var zArray: string[] = ["Mehl", "Zucker", "Eier", "Butter", "Apfel"];
-    zArray.forEach(element => {
-      this.addNewZutat(element);
+    var demoZutaten: string[] = ["obserZutat"];
+    this.addNewRecipe(<Recipe> {name: "ObservableKuchen", img: "", zubereitung: "einfach", zutaten: demoZutaten });
+    ["Apfel", "Mehl", "Zucker", "Eier"].forEach(z => {
+      this.addNewZutat(z);
     });
 
    }

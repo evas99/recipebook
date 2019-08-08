@@ -11,7 +11,7 @@
 
   <input #recName placeholder="Rezeptname" value=""><br>
   <!-- <p>{{recipeName}}</p> -->
-  <input #recID placeholder="ID" value=""><br>
+  <!-- <input #recID placeholder="ID" value=""><br> -->
   <input #imgSrc placeholder="Image Source" value=""><br>
   <input #recZubereitung placeholder="Zubereitung" value=""><br>
 
@@ -24,17 +24,12 @@
     </mat-select>
   </mat-form-field><br>
 
-  <button mat-button (click)="addRecipe(recName.value, recID.value, imgSrc.value, recZubereitung.value, selected )">Add recipe</button>
+  <button mat-button (click)="addRecipe(recName.value, imgSrc.value, recZubereitung.value, selected)">Add recipe</button>
 
   <h4>Add Zutat</h4>
 
   <input #zutatString placeholder="Zutat" value=""><br>
   <button mat-button (click)="addZutat(zutatString.value)">Add Zutat</button>
 
-
-
-<!-- Just for testing, if routing works correctly!
-Todo: change this to display recipe overview, toolbar, ... -->
-<!-- <button mat-button routerLink="/rezept" routerLinkActive="active">Details</button> -->
 
 

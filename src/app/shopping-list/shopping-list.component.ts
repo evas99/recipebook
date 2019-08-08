@@ -14,6 +14,7 @@ export class ShoppingListComponent implements OnInit {
 
   addZutatToShoppingList(array: string[]){
     this.dataService.addZutatToShoppingList(array);
+    // console.log("adding Zutat to Shopping List: " + array[0]);
   }
 
   ngOnInit() {
