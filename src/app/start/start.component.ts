@@ -14,6 +14,7 @@ export class StartComponent implements OnInit {
 
   rezepte: Recipe[];
   zutaten: string[];
+  tempzutaten: string[] = [];
 
   addRecipe(recName, imgSrc, recZubereitung, zutat){
     var zutatArray: string[] = [zutat];
@@ -21,8 +22,12 @@ export class StartComponent implements OnInit {
     this.dataService.addNewRecipe(actual);
   }
 
-  addZutat(zutatString){
+  addZutat(zutatString: string){
     this.dataService.addNewZutat(zutatString);
+  }
+
+  tempAddZutat(selected: string){
+    this.tempzutaten.push(selected);
   }
 
   ngOnInit() {
