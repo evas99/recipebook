@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataserviceService } from '../dataservice.service';
+import { Zutat } from '../zutat';
 
 @Component({
   selector: 'app-zutaten',
@@ -10,9 +11,9 @@ export class ZutatenComponent implements OnInit {
 
   constructor(private dataService: DataserviceService) { }
 
-  zutatenListe: string[];
+  zutatenListe: Zutat[];
 
-  addZutat(zutat: string){
+  addZutat(zutat: Zutat){
     this.dataService.addNewZutat(zutat);
   }
 

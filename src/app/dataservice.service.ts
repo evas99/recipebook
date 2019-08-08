@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, of } from 'rxjs';
 import { Recipe } from './recipe';
 import { element } from 'protractor';
+import { Zutat } from './zutat';
 
 @Injectable({
   providedIn: 'root'
@@ -11,13 +12,13 @@ export class DataserviceService {
   recipeSubject: BehaviorSubject<Recipe[]> = new BehaviorSubject<Recipe[]>([]);
   recipe: Observable<Recipe[]> = this.recipeSubject.asObservable();
 
-  zutatenSubject: BehaviorSubject<string[]> = new BehaviorSubject<string[]>([]);
-  zutaten: Observable<string[]> = this.zutatenSubject.asObservable();
+  zutatenSubject: BehaviorSubject<Zutat[]> = new BehaviorSubject<Zutat[]>([]);
+  zutaten: Observable<Zutat[]> = this.zutatenSubject.asObservable();
 
-  shoppingSubject: BehaviorSubject<string[]> = new BehaviorSubject<string[]>([]);
-  shoppingList: Observable<string[]> = this.shoppingSubject.asObservable();
+  shoppingSubject: BehaviorSubject<Zutat[]> = new BehaviorSubject<Zutat[]>([]);
+  shoppingList: Observable<Zutat[]> = this.shoppingSubject.asObservable();
 
-  addNewZutat(zutat: string){
+  addNewZutat(zutat: Zutat){
     const zutatValue = this.zutatenSubject.value;
     zutatValue.push(zutat);
     this.zutatenSubject.next(zutatValue);
@@ -47,7 +48,7 @@ export class DataserviceService {
     return found; 
   }
 
-  addZutatToShoppingList(shoppingArray: string[]){
+  addZutatToShoppingList(shoppingArray: Zutat[]){
     console.log("Hello from adding Zutat to Shopping List in DataService");
     shoppingArray.forEach(element => {
       console.log(element);
@@ -60,11 +61,12 @@ export class DataserviceService {
   }
 
   constructor() {
-    var demoZutaten: string[] = ["obserZutat"];
+    // var demoZutaten: string[] = ["obserZutat"];
+    var demoZutaten: Zutat[] = [];
     this.addNewRecipe(<Recipe> {name: "ObservableKuchen", img: "", zubereitung: "einfach", zutaten: demoZutaten });
-    ["Apfel", "Mehl", "Zucker", "Eier"].forEach(z => {
-      this.addNewZutat(z);
-    });
+    // ["Apfel", "Mehl", "Zucker", "Eier"].forEach(z => {
+    //   this.addNewZutat(z);
+    // });
 
    }
 }

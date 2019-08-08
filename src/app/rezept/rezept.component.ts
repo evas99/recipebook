@@ -3,6 +3,7 @@ import { DataserviceService } from '../dataservice.service';
 import { Recipe } from '../recipe';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
+import { Zutat } from '../zutat';
 
 @Component({
   selector: 'app-rezept',
@@ -11,10 +12,10 @@ import { Location } from '@angular/common';
 })
 export class RezeptComponent implements OnInit {
 
-  zutatenListe: string[];
+  zutatenListe: Zutat[];
   recipeListe: Recipe[];
   actualRecipe: Recipe;
-  shoppingList: string[];
+  shoppingList: Zutat[];
 
   constructor(
     private dataService: DataserviceService,
@@ -33,7 +34,7 @@ export class RezeptComponent implements OnInit {
 
   addZutatToShoppingList(){
     console.log("adding Zutat to Shopping List: ");
-    this.actualRecipe.zutaten.forEach(el => console.log(el))
+    // this.actualRecipe.zutaten.forEach(el => console.log(el))
     this.dataService.addZutatToShoppingList(this.actualRecipe.zutaten);
   }
 

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataserviceService } from '../dataservice.service';
+import { Zutat } from '../zutat';
 
 @Component({
   selector: 'app-shopping-list',
@@ -10,9 +11,9 @@ export class ShoppingListComponent implements OnInit {
 
   constructor(private dataService: DataserviceService) { }
 
-  shoppingList: string[];
+  shoppingList: Zutat[];
 
-  addZutatToShoppingList(array: string[]){
+  addZutatToShoppingList(array: Zutat[]){
     this.dataService.addZutatToShoppingList(array);
     // console.log("adding Zutat to Shopping List: " + array[0]);
   }
