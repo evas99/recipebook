@@ -18,6 +18,9 @@ export class DataserviceService {
   shoppingSubject: BehaviorSubject<Zutat[]> = new BehaviorSubject<Zutat[]>([]);
   shoppingList: Observable<Zutat[]> = this.shoppingSubject.asObservable();
 
+  categoriesSubject: BehaviorSubject<string[]> = new BehaviorSubject<string[]>([]);
+  categories: Observable<string[]> = this.categoriesSubject.asObservable();
+
   addNewZutat(zutat: Zutat){
     const zutatValue = this.zutatenSubject.value;
     zutatValue.push(zutat);
@@ -49,10 +52,10 @@ export class DataserviceService {
   }
 
   addZutatToShoppingList(shoppingArray: Zutat[]){
-    console.log("Hello from adding Zutat to Shopping List in DataService");
-    shoppingArray.forEach(element => {
-      console.log(element);
-    });
+    // console.log("Hello from adding Zutat to Shopping List in DataService");
+    // shoppingArray.forEach(element => {
+    //   console.log(element);
+    // });
     shoppingArray.forEach(element => {
       const shoppingValue = this.shoppingSubject.value;
       shoppingValue.push(element);
@@ -60,10 +63,21 @@ export class DataserviceService {
     });
   }
 
+  initCategories(){
+    var tempArr: string[] = ["Obst", "Gemüse", "Backen", "Gewürze"];
+    tempArr.forEach(element => {
+      const catValue = this.categoriesSubject.value;
+      catValue.push(element);
+      // console.log("hello from initCategories: "+element);
+      this.categoriesSubject.next(catValue);
+    });
+  }
+
   constructor() {
     // var demoZutaten: string[] = ["obserZutat"];
     var demoZutaten: Zutat[] = [];
     this.addNewRecipe(<Recipe> {name: "ObservableKuchen", img: "", zubereitung: "einfach", zutaten: demoZutaten });
+    this.initCategories();
     // ["Apfel", "Mehl", "Zucker", "Eier"].forEach(z => {
     //   this.addNewZutat(z);
     // });

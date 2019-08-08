@@ -45,7 +45,17 @@
 
   <input #zutatName placeholder="Zutat" value=""><br>
   <input #zutatUnit placeholder="Unit" value=""><br>
-  <button mat-button (click)="addZutat(zutatName.value, zutatUnit.value)">Add Zutat</button>
+  <!-- <input #zutatCategory placeholder="Category" value=""><br> -->
+  <mat-form-field>
+      <mat-label>Select Category</mat-label>
+      <mat-select [(value)]="selectedCat">
+        <mat-option *ngFor="let cat of categories" [value]="cat">
+          {{cat}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field><br>
+    
+  <button mat-button (click)="addZutat(zutatName.value, zutatUnit.value, selectedCat)">Add Zutat</button>
 
 
 

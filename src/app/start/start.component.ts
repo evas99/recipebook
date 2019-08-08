@@ -16,6 +16,7 @@ export class StartComponent implements OnInit {
   rezepte: Recipe[];
   zutaten: Zutat[];
   tempzutaten: Zutat[] = [];
+  categories: string[];
 
   addRecipe(recName, imgSrc, recZubereitung, zutatArray){
     var actual = <Recipe>{name: recName, img: imgSrc, zubereitung: recZubereitung, zutaten: zutatArray};
@@ -26,8 +27,8 @@ export class StartComponent implements OnInit {
   //   this.dataService.addNewZutat(<Zutat>{name: zuName, quantity: zuQuantity});
   // }
 
-  addZutat(zuName: string, zuUnit: string){
-    this.dataService.addNewZutat(<Zutat>{name: zuName, unit: zuUnit});
+  addZutat(zuName: string, zuUnit: string, zuCategory: string){
+    this.dataService.addNewZutat(<Zutat>{name: zuName, unit: zuUnit, category: zuCategory});
   }
 
   tempAddZutat(zuName: string, zuQuantity: number){
@@ -38,6 +39,7 @@ export class StartComponent implements OnInit {
   ngOnInit() {
     this.dataService.recipe.subscribe(recipes => this.rezepte = recipes);
     this.dataService.zutaten.subscribe(element => this.zutaten = element);
+    this.dataService.categories.subscribe(element => this.categories = element);
     // this.dataService.addNewRecipe(<Recipe>{name: "Erdbeerkuchen", id: 12});
   }
 

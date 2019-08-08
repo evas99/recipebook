@@ -27,12 +27,12 @@
 - Kommentare (wenn der Code sich selbst erklärt, braucht es keine Kommentare)
 - vorgestellte Hilfsmittel verwenden (siehe Beispielprojekt Dozent)
 - kein Spaghetti-Code -> verständlicher, aufgeräumter Code
-- Funktionalität (wichtig!!!) - falls es nicht funktioniert, googlen, Fehleranalyse und Ideen       anfügen wie es gehen könnte
+- Funktionalität (wichtig!!!) - falls es nicht funktioniert, googlen, Fehleranalyse und Ideen anfügen wie es gehen könnte
 
 #### Abgabe
 
 - Abgabe über GitHub
-- es muss nachvollziehbar sein, dass das Projekt Stück für Stück gewachsen ist (nicht nur ein       Commit)
+- es muss nachvollziehbar sein, dass das Projekt Stück für Stück gewachsen ist (nicht nur ein Commit)
 - auch die Doku über GitHub abgeben
 
 ## Projekt - Rezeptbuch

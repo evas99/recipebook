@@ -3,4 +3,5 @@ export interface Zutat {
     // id: number;
     quantity: number;
     unit: string;
+    category: string;
 }
