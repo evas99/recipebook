@@ -77,6 +77,12 @@ export class DataserviceService {
     // var demoZutaten: string[] = ["obserZutat"];
     var demoZutaten: Zutat[] = [];
     this.addNewRecipe(<Recipe> {name: "ObservableKuchen", img: "", zubereitung: "einfach", zutaten: demoZutaten });
+    this.addNewRecipe(<Recipe> {name: "Erdbeerkuchen", img: "", zubereitung: "einfach", zutaten: demoZutaten });
+    this.addNewZutat(<Zutat> {name: "Mehl", unit:"kg", category: "Backen"});
+    this.addNewZutat(<Zutat> {name: "Zucker", unit:"kg", category: "Backen"});
+    this.addNewZutat(<Zutat> {name: "Salz", unit:"kg", category: "Gewürze"});
+    this.addNewZutat(<Zutat> {name: "Möhren", unit:"kg", category: "Gemüse"});
+    this.addNewZutat(<Zutat> {name: "Erdbeeren", unit:"Anzahl", category: "Obst"});
     this.initCategories();
     // ["Apfel", "Mehl", "Zucker", "Eier"].forEach(z => {
     //   this.addNewZutat(z);

@@ -3,9 +3,9 @@
 <div>
   <h4>Rezepte</h4>
 
-  <div class="recipeButtons" *ngFor="let recipe of rezepte">
+  <!-- <div class="recipeButtons" *ngFor="let recipe of rezepte">
     <button mat-button [routerLink]="['/rezept', recipe.id]" routerLinkActive="active">{{ recipe.name }}</button>
-  </div>
+  </div> -->
 
   <div class="cardDiv">
       <mat-card class="recipeCard" *ngFor="let recipe of rezepte">
