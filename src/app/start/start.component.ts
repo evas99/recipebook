@@ -22,7 +22,7 @@ export class StartComponent implements OnInit {
   }
 
   addZutat(zutatString){
-    this.zutaten.push(zutatString);
+    this.dataService.addNewZutat(zutatString);
   }
 
   ngOnInit() {

@@ -15,7 +15,7 @@ export class DataserviceService {
   zutaten: Observable<string[]> = this.zutatenSubject.asObservable();
 
   shoppingSubject: BehaviorSubject<string[]> = new BehaviorSubject<string[]>([]);
-  shoppingList: Observable<string[]> = this.zutatenSubject.asObservable();
+  shoppingList: Observable<string[]> = this.shoppingSubject.asObservable();
 
   addNewZutat(zutat: string){
     const zutatValue = this.zutatenSubject.value;
