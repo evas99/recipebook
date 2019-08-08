@@ -16,8 +16,7 @@ export class StartComponent implements OnInit {
   zutaten: string[];
   tempzutaten: string[] = [];
 
-  addRecipe(recName, imgSrc, recZubereitung, zutat){
-    var zutatArray: string[] = [zutat];
+  addRecipe(recName, imgSrc, recZubereitung, zutatArray){
     var actual = <Recipe>{name: recName, img: imgSrc, zubereitung: recZubereitung, zutaten: zutatArray};
     this.dataService.addNewRecipe(actual);
   }
