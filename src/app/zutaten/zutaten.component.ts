@@ -1,18 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ComponentFactoryResolver } from '@angular/core';
 import { DataserviceService } from '../dataservice.service';
 import { Zutat } from '../zutat';
-import { MatTableDataSource } from '@angular/material';
+import { MatTableDataSource, MatSort, Sort } from '@angular/material';
 import { DataSource } from '@angular/cdk/collections';
 import { connect } from 'net';
 import { Observable } from 'rxjs';
 import { disconnect } from 'cluster';
-
-export class ZutatenDataSource implements DataSource<any>{
-  constructor(private dataService: DataserviceService){
-  }
-  connect(): Observable<Zutat[]>{return this.dataService.zutaten};
-  disconnect(){};
-} 
 
 @Component({
   selector: 'app-zutaten',
@@ -25,23 +18,21 @@ export class ZutatenComponent implements OnInit {
   constructor(private dataService: DataserviceService) { }
 
   zutatenListe: Zutat[];
-  // dataSource = this.zutatenListe;
-  
-  // ELEMENT_DATA: Zutat[] = this.zutatenListe;
-
-  // displayedColoums: string[] = ['name', 'category'];
-  // dataSource =  this.ELEMENT_DATA;
 
   displayedColumns: string[] = ['name', 'category'];
-  dataSource = new ZutatenDataSource(this.dataService);
-
+  dataSource = new MatTableDataSource(this.zutatenListe);
 
   addZutat(zutat: Zutat){
     this.dataService.addNewZutat(zutat);
   }
 
-  ngOnInit() {
-    this.dataService.zutaten.subscribe(zutaten => this.zutatenListe = zutaten);
-  }
+  @ViewChild(MatSort, {static: true}) sort: MatSort;
 
+  ngOnInit() {
+    this.dataService.zutaten.subscribe(zutaten => {
+      this.zutatenListe = zutaten; 
+      this.dataSource.data = this.zutatenListe;   
+      this.dataSource.sort = this.sort;
+    });
+  }
 }

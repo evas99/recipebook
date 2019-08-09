@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule, MatCardModule, MatSelectModule, MatToolbarModule, MatInputModule, MatTableModule } from '@angular/material';
+import { MatButtonModule, MatCardModule, MatSelectModule, MatToolbarModule, MatInputModule, MatTableModule, MatSortModule } from '@angular/material';
 import { RezeptComponent } from './rezept/rezept.component';
 import { RecipeOverviewComponent } from './recipe-overview/recipe-overview.component';
 import { ZutatenComponent } from './zutaten/zutaten.component';
@@ -19,7 +19,8 @@ const modules = [
   MatSelectModule, 
   MatToolbarModule, 
   MatInputModule,
-  MatTableModule
+  MatTableModule,
+  MatSortModule
  ];
 
 @NgModule({
