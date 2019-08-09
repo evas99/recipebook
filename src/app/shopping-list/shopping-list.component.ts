@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { DataserviceService } from '../dataservice.service';
 import { Zutat } from '../zutat';
+import { MatSort, MatTableDataSource } from '@angular/material';
 
 @Component({
   selector: 'app-shopping-list',
@@ -18,8 +19,17 @@ export class ShoppingListComponent implements OnInit {
     // console.log("adding Zutat to Shopping List: " + array[0]);
   }
 
-  ngOnInit() {
-    this.dataService.shoppingList.subscribe(element => this.shoppingList = element);
-  }
+  displayedColumns: string[] = ['name','quantity', 'category'];
+  dataSource = new MatTableDataSource(this.shoppingList);
 
+  @ViewChild(MatSort, {static: true}) sort: MatSort;
+
+  ngOnInit() {
+    this.dataService.shoppingList.subscribe(element => {
+      this.shoppingList = element;
+      console.log(this.shoppingList);
+      this.dataSource.data = this.shoppingList;   
+      this.dataSource.sort = this.sort;
+    });
+  }
 }
