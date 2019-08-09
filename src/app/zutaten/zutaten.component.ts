@@ -1,11 +1,13 @@
 import { Component, OnInit, ViewChild, ComponentFactoryResolver } from '@angular/core';
 import { DataserviceService } from '../dataservice.service';
 import { Zutat } from '../zutat';
-import { MatTableDataSource, MatSort, Sort } from '@angular/material';
+import { MatTableDataSource, MatSort, Sort, MatDialog } from '@angular/material';
 import { DataSource } from '@angular/cdk/collections';
 import { connect } from 'net';
 import { Observable } from 'rxjs';
 import { disconnect } from 'cluster';
+import { ActivatedRoute } from '@angular/router';
+import { AddZutatComponent } from '../add-zutat/add-zutat.component';
 
 @Component({
   selector: 'app-zutaten',
@@ -15,7 +17,7 @@ import { disconnect } from 'cluster';
 
 export class ZutatenComponent implements OnInit {
 
-  constructor(private dataService: DataserviceService) { }
+  constructor(private dataService: DataserviceService, private route: ActivatedRoute, public dialog: MatDialog) { }
 
   zutatenListe: Zutat[];
   categories: string[];
@@ -36,5 +38,9 @@ export class ZutatenComponent implements OnInit {
       this.dataSource.sort = this.sort;
     });
     this.dataService.categories.subscribe(element => this.categories = element);
+  }
+
+  openAddZutatDialog() {
+    this.dialog.open(AddZutatComponent);
   }
 }

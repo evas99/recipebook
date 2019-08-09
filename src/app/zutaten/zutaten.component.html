@@ -26,7 +26,8 @@
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
 
-  <button class="addButton" mat-fab [routerLink]="['/add-zutat']" routerLinkActive="active">+</button>
+  <!-- <button class="addButton" mat-fab [routerLink]="['/add-zutat']" routerLinkActive="active">+</button> -->
+  <button mat-fab class="addButton" (click)="openAddZutatDialog()">+</button>
 
   <!-- <h4>Add Zutat</h4>
 
