@@ -76,7 +76,9 @@ export class DataserviceService {
   constructor() {
     // var demoZutaten: string[] = ["obserZutat"];
     var demoZutaten: Zutat[] = [];
-    this.addNewRecipe(<Recipe> {name: "ObservableKuchen", img: "https://s14-eu5.startpage.com/cgi-bin/serveimage?url=http%3A%2F%2Ft0.gstatic.com%2Fimages%3Fq%3Dtbn%3AANd9GcT6X1w4dbHcgj_O4hByDeHOYMIdanO-dqVvcagsWlXQbfGkzmTV&sp=94b415816f3fc3f0424dc7e9df495e16&anticache=648710", zubereitung: "einfach", zutaten: demoZutaten });
+    var descString = "Do you see any Teletubbies in here? Do you see a slender plastic tag clipped to my shirt with my name printed on it? Do you see a little Asian child with a blank expression on his face sitting outside on a mechanical helicopter that shakes when you put quarters in it? No? Well, that’s what you see at a toy store. And you must think you’re in a toy store, because you’re here shopping for an infant named Jeb.";
+    var imgString = "https://s14-eu5.startpage.com/cgi-bin/serveimage?url=http%3A%2F%2Ft0.gstatic.com%2Fimages%3Fq%3Dtbn%3AANd9GcT6X1w4dbHcgj_O4hByDeHOYMIdanO-dqVvcagsWlXQbfGkzmTV&sp=94b415816f3fc3f0424dc7e9df495e16&anticache=648710";
+    this.addNewRecipe(<Recipe> {name: "ObservableKuchen", img: imgString, description: descString, zutaten: demoZutaten });
     this.addNewRecipe(<Recipe> {name: "Erdbeeren", img: "", zubereitung: "einfach", zutaten: demoZutaten });
     this.addNewZutat(<Zutat> {name: "Mehl", unit:"kg", category: "Backen"});
     this.addNewZutat(<Zutat> {name: "Zucker", unit:"kg", category: "Backen"});
