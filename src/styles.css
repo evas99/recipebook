@@ -8,3 +8,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .mat-card-header-text {
     margin: 0px;
 }
+
+.mainDiv{
+    width: 90%;
+    height: 90%;
+    margin: 5%;
+}
