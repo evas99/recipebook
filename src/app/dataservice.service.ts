@@ -76,8 +76,8 @@ export class DataserviceService {
   constructor() {
     // var demoZutaten: string[] = ["obserZutat"];
     var demoZutaten: Zutat[] = [];
-    this.addNewRecipe(<Recipe> {name: "ObservableKuchen", img: "", zubereitung: "einfach", zutaten: demoZutaten });
-    this.addNewRecipe(<Recipe> {name: "Erdbeerkuchen", img: "", zubereitung: "einfach", zutaten: demoZutaten });
+    this.addNewRecipe(<Recipe> {name: "ObservableKuchen", img: "https://s14-eu5.startpage.com/cgi-bin/serveimage?url=http%3A%2F%2Ft0.gstatic.com%2Fimages%3Fq%3Dtbn%3AANd9GcT6X1w4dbHcgj_O4hByDeHOYMIdanO-dqVvcagsWlXQbfGkzmTV&sp=94b415816f3fc3f0424dc7e9df495e16&anticache=648710", zubereitung: "einfach", zutaten: demoZutaten });
+    this.addNewRecipe(<Recipe> {name: "Erdbeeren", img: "", zubereitung: "einfach", zutaten: demoZutaten });
     this.addNewZutat(<Zutat> {name: "Mehl", unit:"kg", category: "Backen"});
     this.addNewZutat(<Zutat> {name: "Zucker", unit:"kg", category: "Backen"});
     this.addNewZutat(<Zutat> {name: "Salz", unit:"kg", category: "Gewürze"});

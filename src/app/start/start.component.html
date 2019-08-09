@@ -1,16 +1,17 @@
-<h2>Start Page / Overview</h2>
 
 <div class="mainDiv">
-  <!-- <h4>Rezepte</h4> -->
 
-  <div class="cardDiv">
+  <div class="cardContainer">
+
       <mat-card class="recipeCard" *ngFor="let recipe of rezepte">
         <mat-card-header>
           <mat-card-title>{{ recipe.name }}</mat-card-title>
           <mat-card-subtitle>Kategorie</mat-card-subtitle>
         </mat-card-header>
         <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
-        <img mat-card-image src="https://s14-eu5.startpage.com/cgi-bin/serveimage?url=http%3A%2F%2Ft0.gstatic.com%2Fimages%3Fq%3Dtbn%3AANd9GcT6X1w4dbHcgj_O4hByDeHOYMIdanO-dqVvcagsWlXQbfGkzmTV&sp=94b415816f3fc3f0424dc7e9df495e16&anticache=648710">
+        <!-- <img mat-card-image src="https://s14-eu5.startpage.com/cgi-bin/serveimage?url=http%3A%2F%2Ft0.gstatic.com%2Fimages%3Fq%3Dtbn%3AANd9GcT6X1w4dbHcgj_O4hByDeHOYMIdanO-dqVvcagsWlXQbfGkzmTV&sp=94b415816f3fc3f0424dc7e9df495e16&anticache=648710"> -->
+        <img mat-card-image style="width: 218px; height: 122.08px;" src={{recipe.img}}>
+        <!-- <img mat-card-image src={{recipe.img}}/> -->
         <!-- <mat-card-content>
           <ol>
             <li>{{ zutat }}</li>
@@ -20,10 +21,12 @@
             <button mat-button [routerLink]="['/rezept', recipe.id]" routerLinkActive="active">Details</button>
         </mat-card-actions>
       </mat-card>
-    </div>
 
-    <button mat-button [routerLink]="['/add-recipe']" routerLinkActive="active">Add Recipe</button>
   </div>
+
+    <button class="addButton" mat-fab [routerLink]="['/add-recipe']" routerLinkActive="active">+</button>
+
+</div>
 
 
 
