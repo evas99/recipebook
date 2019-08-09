@@ -1,3 +1,5 @@
+import { Zutat } from './zutat';
+
 export interface Recipe {
 
     name: string;
@@ -5,5 +7,5 @@ export interface Recipe {
     img: string; //should be a link to a google picture
     description: string;
     zubereitung: string;
-    zutaten: [];
+    zutaten: Zutat[];
 }

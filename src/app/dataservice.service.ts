@@ -51,16 +51,37 @@ export class DataserviceService {
     return found; 
   }
 
-  addZutatToShoppingList(shoppingArray: Zutat[]){
+  addZutatToShoppingList(tempShoppingArray: Zutat[]){
     // console.log("Hello from adding Zutat to Shopping List in DataService");
     // shoppingArray.forEach(element => {
     //   console.log(element);
     // });
-    shoppingArray.forEach(element => {
-      const shoppingValue = this.shoppingSubject.value;
-      shoppingValue.push(element);
-      this.shoppingSubject.next(shoppingValue);
+    tempShoppingArray.forEach(el => {
+        var tempZutatToStore = <Zutat>{
+          name: el.name, 
+          category: el.category, 
+          unit: el.unit, 
+          quantity: el.quantity
+        }
+        const shoppingValue = this.shoppingSubject.value;
+        shoppingValue.push(tempZutatToStore);
+        this.shoppingSubject.next(shoppingValue);
     });
+    
+  }
+
+  addSingleZutatToShoppingList(tempShoppingElement: Zutat){
+    if(tempShoppingElement != null){
+      var tempZutatToStore = <Zutat>{
+        name: tempShoppingElement.name, 
+        category: tempShoppingElement.category, 
+        unit: tempShoppingElement.unit, 
+        quantity: tempShoppingElement.quantity
+      };
+      const shoppingValue = this.shoppingSubject.value;
+      shoppingValue.push(tempZutatToStore);
+      this.shoppingSubject.next(shoppingValue);
+    }
   }
 
   initCategories(){
@@ -132,10 +153,13 @@ export class DataserviceService {
   }
 
   initDemoShoppingList(){
-    var tempZutat = this.getZutat("Mehl");
-    console.log("hello from init Demo "+tempZutat);
-    tempZutat.quantity = 300;
-    this.addZutatToShoppingList([tempZutat]);
+    var actual = this.getZutat("Mehl");
+    if(actual != null){
+      var tempZutatToStore = <Zutat>{name: actual.name, category: actual.category, unit: actual.unit, quantity: actual.quantity};
+      console.log("hello from init Demo "+actual);
+      tempZutatToStore.quantity = 300;
+      this.addZutatToShoppingList([tempZutatToStore]);
+    }
   }
 
   constructor() {
