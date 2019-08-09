@@ -20,6 +20,8 @@
             <input matNativeControl #recZubereitung placeholder="Zubereitung" value="">
           </mat-form-field>
 
+        <h3>Select Zutat</h3>
+
         <mat-form-field>
             <mat-label>Select Zutat</mat-label>
             <mat-select #selection [(value)]="selected">
@@ -34,14 +36,17 @@
             <input matNativeControl #zuQuantity placeholder="Quantity" value="">
         </mat-form-field>
 
-        <button mat-button class="addZutatButton" (click)="tempAddZutat(selected)">Add Zutat to Recipe</button>
+        <button mat-button class="addZutatButton" (click)="tempAddZutat(selected)">
+            <i class="material-icons">check</i>
+            Click to add Zutat to Recipe
+          </button>
         
       
       <ul>
         <li *ngFor="let item of tempzutaten"><span>{{ item.name }}</span><span>{{ item.quantity }}</span></li>
       </ul>
 
-      <button mat-button (click)="addRecipe(recName.value, recDesc.value ,imgSrc.value, recZubereitung.value, tempzutaten)">Add recipe</button>
+      <button mat-button class="addRecipeButton" (click)="addRecipe(recName.value, recDesc.value ,imgSrc.value, recZubereitung.value, tempzutaten)">Add recipe</button>
 
   </div>
 
