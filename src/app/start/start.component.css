@@ -9,13 +9,22 @@
     height: 30%; */
 }
 
-.recipe-desc{
+.recipe-zubereitung{
     max-lines: 3;
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 3;
+    width: 186px;
+}
+.recipe-desc{
+    max-lines: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
     width: 186px;
 }
 

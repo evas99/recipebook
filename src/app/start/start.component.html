@@ -6,12 +6,12 @@
       <mat-card class="recipeCard" *ngFor="let recipe of rezepte">
         <mat-card-header>
           <mat-card-title>{{ recipe.name }}</mat-card-title>
-          <!-- <mat-card-subtitle>recipe.difficulty</mat-card-subtitle> -->
+          <mat-card-subtitle class="recipe-desc">{{ recipe.description }}</mat-card-subtitle>
         </mat-card-header>
         <img mat-card-image style="width: 218px; height: 122.08px;" src={{recipe.img}}>
         <mat-card-content >
-          <h4>Description</h4>
-          <span class="recipe-desc">{{ recipe.description }}</span>
+          <h4>Zubereitung</h4>
+          <span class="recipe-zubereitung">{{ recipe.zubereitung }}</span>
         </mat-card-content>
         <mat-card-actions>
             <button mat-button [routerLink]="['/rezept', recipe.id]" routerLinkActive="active">Details</button>
