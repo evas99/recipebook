@@ -1,6 +1,8 @@
 
 <div class="mainDiv">
 
+  <h2>Welcome to Recipe book!</h2>
+
   <div class="cardContainer">
 
       <mat-card class="recipeCard" *ngFor="let recipe of rezepte">
@@ -20,7 +22,8 @@
 
   </div>
 
-    <button class="addButton" mat-fab [routerLink]="['/add-recipe']" routerLinkActive="active">+</button>
+    <!-- <button class="addButton" mat-fab [routerLink]="['/add-recipe']" routerLinkActive="active">+</button> -->
+    <button mat-fab class="addButton" (click)="openAddRecipeDialog()">+</button>
 
 </div>
 

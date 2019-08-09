@@ -5,7 +5,11 @@
   <div class="inputFields">
 
       <mat-form-field>
-          <input matNativeControl #recName placeholder="Rezeptname" value="">
+          <input matNativeControl #recName placeholder="Recipe Name" value="">
+        </mat-form-field>
+
+      <mat-form-field>
+          <input matNativeControl #recDesc placeholder="Description" value="">
         </mat-form-field>
         
         <mat-form-field>
@@ -22,22 +26,22 @@
               <mat-option *ngFor="let zutat of zutaten" [value]="zutat">
                 {{zutat.name}}
               </mat-option>
-              <button class="addZutatButton" mat-button [routerLink]="['/add-zutat']" routerLinkActive="active">Add Zutat</button>
+              <button class="addZutatButton" mat-button [routerLink]="['/add-zutat']" routerLinkActive="active">New Zutat</button>
             </mat-select>
         </mat-form-field><br>
-
-        <!-- <button mat-button class="addZutatButton" (click)="tempAddZutat(selected)">Add Zutat</button> -->
 
         <mat-form-field>
             <input matNativeControl #zuQuantity placeholder="Quantity" value="">
         </mat-form-field>
+
+        <button mat-button class="addZutatButton" (click)="tempAddZutat(selected)">Add Zutat to Recipe</button>
         
       
       <ul>
         <li *ngFor="let item of tempzutaten"><span>{{ item.name }}</span><span>{{ item.quantity }}</span></li>
       </ul>
 
-      <button mat-button (click)="addRecipe(recName.value, imgSrc.value, recZubereitung.value, tempzutaten)">Add recipe</button>
+      <button mat-button (click)="addRecipe(recName.value, recDesc.value ,imgSrc.value, recZubereitung.value, tempzutaten)">Add recipe</button>
 
   </div>
 

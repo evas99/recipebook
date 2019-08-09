@@ -21,8 +21,8 @@ export class AddRecipeComponent implements OnInit {
   tempzutaten: Zutat[] = [];
   categories: string[];
 
-  addRecipe(recName, imgSrc, recZubereitung, zutatArray){
-    var actual = <Recipe>{name: recName, img: imgSrc, zubereitung: recZubereitung, zutaten: zutatArray};
+  addRecipe(recName, recDesc, imgSrc, recZubereitung, zutatArray){
+    var actual = <Recipe>{name: recName, description: recDesc, img: imgSrc, zubereitung: recZubereitung, zutaten: zutatArray};
     this.dataService.addNewRecipe(actual);
   }
 
