@@ -20,7 +20,7 @@ export class ZutatenComponent implements OnInit {
   zutatenListe: Zutat[];
   categories: string[];
 
-  displayedColumns: string[] = ['name', 'category'];
+  displayedColumns: string[] = ['name', 'category', 'unit'];
   dataSource = new MatTableDataSource(this.zutatenListe);
 
   addZutat(zuName: string, zuUnit: string, zuCategory: string){
