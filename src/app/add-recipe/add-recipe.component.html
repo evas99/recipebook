@@ -8,7 +8,7 @@
 
 <mat-form-field>
   <mat-label>Select Zutat</mat-label>
-  <mat-select [(value)]="selected">
+  <mat-select #selection [(value)]="selected">
     <mat-option *ngFor="let zutat of zutaten" [value]="zutat">
       {{zutat.name}}
     </mat-option>
@@ -19,7 +19,7 @@
 <ul>
   <li *ngFor="let item of tempzutaten"><span>{{ item.name }}</span><span>{{ item.quantity }}</span></li>
 </ul>
-<button mat-button (click)="tempAddZutat(selected, zuQuantity.value)">Add Zutat</button>
+<button mat-button (click)="tempAddZutat(selected)">Add Zutat</button>
 
 <button mat-button (click)="addRecipe(recName.value, imgSrc.value, recZubereitung.value, tempzutaten)">Add recipe</button>
 

@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { DataserviceService } from '../dataservice.service';
 import { Recipe } from '../recipe';
 import { Zutat } from '../zutat';
+import { Input } from '@angular/compiler/src/core';
 
 @Component({
   selector: 'app-add-recipe',
@@ -12,6 +13,9 @@ export class AddRecipeComponent implements OnInit {
 
   constructor(private dataService: DataserviceService) { }
 
+@ViewChild('zuQuantity', {static:false}) htmlQuantity: ElementRef;
+@ViewChild('selection', {static:false}) htmlSelection: ElementRef;
+  
   rezepte: Recipe[];
   zutaten: Zutat[];
   tempzutaten: Zutat[] = [];
@@ -30,10 +34,13 @@ export class AddRecipeComponent implements OnInit {
   //   this.dataService.addNewZutat(<Zutat>{name: zuName, unit: zuUnit, category: zuCategory});
   // }
 
-  tempAddZutat(zutat: Zutat, zuQuantity: number){
+  tempAddZutat(zutat: Zutat){
     console.log("hello from tempAddZutat "+zutat);
-    zutat.quantity = zuQuantity; 
+    zutat.quantity = this.htmlQuantity.nativeElement.value; 
     this.tempzutaten.push(zutat);
+
+    this.htmlQuantity.nativeElement.value = "";
+    this.htmlSelection.nativeElement.selected = "";
   }
 
   ngOnInit() {
