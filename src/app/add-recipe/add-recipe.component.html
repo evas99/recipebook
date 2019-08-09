@@ -1,0 +1,25 @@
+<h4>Add Recipe</h4>
+
+<input #recName placeholder="Rezeptname" value=""><br>
+<!-- <p>{{recipeName}}</p> -->
+<!-- <input #recID placeholder="ID" value=""><br> -->
+<input #imgSrc placeholder="Image Source" value=""><br>
+<input #recZubereitung placeholder="Zubereitung" value=""><br>
+
+<mat-form-field>
+  <mat-label>Select Zutat</mat-label>
+  <mat-select [(value)]="selected">
+    <mat-option *ngFor="let zutat of zutaten" [value]="zutat">
+      {{zutat.name}}
+    </mat-option>
+  </mat-select>
+</mat-form-field><br>
+<input #zuQuantity placeholder="Quantity" value=""><br>
+
+<ul>
+  <li *ngFor="let item of tempzutaten"><span>{{ item.name }}</span><span>{{ item.quantity }}</span></li>
+</ul>
+<button mat-button (click)="tempAddZutat(selected, zuQuantity.value)">Add Zutat</button>
+
+<button mat-button (click)="addRecipe(recName.value, imgSrc.value, recZubereitung.value, tempzutaten)">Add recipe</button>
+

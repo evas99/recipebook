@@ -10,6 +10,7 @@ import { RecipeOverviewComponent } from './recipe-overview/recipe-overview.compo
 import { ZutatenComponent } from './zutaten/zutaten.component';
 import { StartComponent } from './start/start.component';
 import { ShoppingListComponent } from './shopping-list/shopping-list.component';
+import { AddRecipeComponent } from './add-recipe/add-recipe.component';
 
 const modules = [ 
   BrowserAnimationsModule, 
@@ -30,7 +31,8 @@ const modules = [
     RecipeOverviewComponent,
     ZutatenComponent,
     StartComponent,
-    ShoppingListComponent
+    ShoppingListComponent,
+    AddRecipeComponent
   ],
   imports: [
     AppRoutingModule,

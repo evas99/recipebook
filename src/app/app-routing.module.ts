@@ -4,6 +4,7 @@ import { RezeptComponent } from './rezept/rezept.component';
 import { StartComponent } from './start/start.component';
 import { ZutatenComponent } from './zutaten/zutaten.component';
 import { ShoppingListComponent } from './shopping-list/shopping-list.component';
+import { AddRecipeComponent } from './add-recipe/add-recipe.component';
 
 const routes: Routes = [
   { path: '', component: StartComponent},
@@ -11,7 +12,8 @@ const routes: Routes = [
   { path: 'rezept', component: RezeptComponent},
   { path: 'rezept/:id', component:RezeptComponent},
   { path: 'zutaten', component: ZutatenComponent},
-  { path: 'shoppingList', component: ShoppingListComponent}
+  { path: 'shoppingList', component: ShoppingListComponent},
+  { path: 'add-recipe', component: AddRecipeComponent},
 ];
 
 @NgModule({

@@ -1,7 +1,7 @@
 <h2>Start Page / Overview</h2>
 
-<div>
-  <h4>Rezepte</h4>
+<div class="mainDiv">
+  <!-- <h4>Rezepte</h4> -->
 
   <div class="cardDiv">
       <mat-card class="recipeCard" *ngFor="let recipe of rezepte">
@@ -22,12 +22,12 @@
       </mat-card>
     </div>
 
-  <h4>Add Recipe</h4>
+  <!-- <h4>Add Recipe</h4>
 
   <input #recName placeholder="Rezeptname" value=""><br>
-  <!-- <p>{{recipeName}}</p> -->
+  <p>{{recipeName}}</p> -->
   <!-- <input #recID placeholder="ID" value=""><br> -->
-  <input #imgSrc placeholder="Image Source" value=""><br>
+  <!-- <input #imgSrc placeholder="Image Source" value=""><br>
   <input #recZubereitung placeholder="Zubereitung" value=""><br>
 
   <mat-form-field>
@@ -45,7 +45,7 @@
   </ul>
   <button mat-button (click)="tempAddZutat(selected, zuQuantity.value)">Add Zutat</button>
 
-  <button mat-button (click)="addRecipe(recName.value, imgSrc.value, recZubereitung.value, tempzutaten)">Add recipe</button>
+  <button mat-button (click)="addRecipe(recName.value, imgSrc.value, recZubereitung.value, tempzutaten)">Add recipe</button> --> -->
 
   <h4>Add Zutat</h4>
 
@@ -63,5 +63,8 @@
 
   <button mat-button (click)="addZutat(zutatName.value, zutatUnit.value, selectedCat)">Add Zutat</button>
 
+  <button mat-button [routerLink]="['/add-recipe']" routerLinkActive="active">Add Recipe</button>
+
+</div>
 
 
