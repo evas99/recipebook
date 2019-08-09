@@ -1,5 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { MatInput } from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
 import { AddRecipeComponent } from './add-recipe.component';
 
 describe('AddRecipeComponent', () => {

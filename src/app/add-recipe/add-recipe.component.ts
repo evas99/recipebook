@@ -40,7 +40,7 @@ export class AddRecipeComponent implements OnInit {
     this.tempzutaten.push(zutat);
 
     this.htmlQuantity.nativeElement.value = "";
-    this.htmlSelection.nativeElement.selected = "";
+    // this.htmlSelection.nativeElement.selected = "";
   }
 
   ngOnInit() {
