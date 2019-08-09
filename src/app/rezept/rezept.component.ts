@@ -4,6 +4,7 @@ import { Recipe } from '../recipe';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { Zutat } from '../zutat';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-rezept',
@@ -43,11 +44,15 @@ export class RezeptComponent implements OnInit {
   //   console.log("adding Zutat to Shopping List: " + array[0]);
   // }
 
+  displayedColumns: string[] = ['name','quantity'];
+  dataSource = new MatTableDataSource(this.zutatenListe);
+
   ngOnInit() {
     this.dataService.zutaten.subscribe(zutaten => this.zutatenListe = zutaten);
     this.actualRecipe = this.getRecipe();
     this.dataService.shoppingList.subscribe(element => this.shoppingList = element);
-    // this.dataService.addNewRecipe(<Recipe>{name: "Pflaumenkuchen", id: 13});
+
+    this.dataSource.data = this.actualRecipe.zutaten; 
   }
 
 }

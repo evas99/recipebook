@@ -7,3 +7,11 @@
 .mat-card-header-text {
     margin: 0px !important;
 }
+
+table{
+    width: 100%;
+}
+
+.mat-button{
+    width: 100%;
+}
