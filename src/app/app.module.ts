@@ -11,6 +11,7 @@ import { ZutatenComponent } from './zutaten/zutaten.component';
 import { StartComponent } from './start/start.component';
 import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import { AddRecipeComponent } from './add-recipe/add-recipe.component';
+import { AddZutatComponent } from './add-zutat/add-zutat.component';
 
 const modules = [ 
   BrowserAnimationsModule, 
@@ -33,7 +34,8 @@ const modules = [
     ZutatenComponent,
     StartComponent,
     ShoppingListComponent,
-    AddRecipeComponent
+    AddRecipeComponent,
+    AddZutatComponent
   ],
   imports: [
     AppRoutingModule,

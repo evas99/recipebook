@@ -15,3 +15,10 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     margin: 5%;
     margin-bottom: 5%;
 }
+
+/* .addButton{
+    background-color: green;
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+} */

@@ -26,7 +26,9 @@
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
 
-  <h4>Add Zutat</h4>
+  <button class="addButton" mat-fab [routerLink]="['/add-zutat']" routerLinkActive="active">+</button>
+
+  <!-- <h4>Add Zutat</h4>
 
   <input #zutatName placeholder="Zutat" value=""><br>
   <input #zutatUnit placeholder="Unit" value=""><br>
@@ -38,8 +40,8 @@
           {{cat}}
         </mat-option>
       </mat-select>
-    </mat-form-field><br>
+    </mat-form-field><br> -->
 
-  <button mat-button (click)="addZutat(zutatName.value, zutatUnit.value, selectedCat)">Add Zutat</button>
+  <!-- <button mat-button (click)="addZutat(zutatName.value, zutatUnit.value, selectedCat)">Add Zutat</button> -->
 
 </div>

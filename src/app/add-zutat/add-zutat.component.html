@@ -1,0 +1,39 @@
+<div class="mainDiv">
+  <h1>Add Zutat</h1>
+
+  <!-- <input #zutatName placeholder="Zutat" value=""><br>
+  <input #zutatUnit placeholder="Unit" value=""><br>
+
+  <mat-form-field>
+      <mat-label>Select Category</mat-label>
+      <mat-select [(value)]="selectedCat">
+        <mat-option *ngFor="let cat of categories" [value]="cat">
+          {{cat}}
+        </mat-option>
+      </mat-select>
+  </mat-form-field> -->
+  <div class="inputFields">
+
+  <mat-form-field>
+      <input matNativeControl #zutatName placeholder="Zutat" value="">
+    </mat-form-field>
+    
+    <mat-form-field>
+        <input matNativeControl #zutatUnit placeholder="Unit" value="">
+    </mat-form-field>
+    
+    <mat-form-field>
+        <mat-label>Select Category</mat-label>
+        <mat-select [(value)]="selectedCat">
+          <mat-option *ngFor="let cat of categories" [value]="cat">
+            {{cat}}
+          </mat-option>
+        </mat-select>
+    </mat-form-field>
+  
+    <button mat-button (click)="addZutat(zutatName.value, zutatUnit.value, selectedCat)">Add Zutat</button>
+
+  </div>
+  
+
+</div>

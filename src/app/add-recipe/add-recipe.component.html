@@ -1,6 +1,6 @@
 <div class="mainDiv">
 
-  <h4>Add Recipe</h4>
+  <h1>Add Recipe</h1>
 
   <div class="inputFields">
 
@@ -22,8 +22,11 @@
               <mat-option *ngFor="let zutat of zutaten" [value]="zutat">
                 {{zutat.name}}
               </mat-option>
+              <button class="addZutatButton" mat-button [routerLink]="['/add-zutat']" routerLinkActive="active">Add Zutat</button>
             </mat-select>
         </mat-form-field><br>
+
+        <!-- <button mat-button class="addZutatButton" (click)="tempAddZutat(selected)">Add Zutat</button> -->
 
         <mat-form-field>
             <input matNativeControl #zuQuantity placeholder="Quantity" value="">
@@ -33,8 +36,6 @@
       <ul>
         <li *ngFor="let item of tempzutaten"><span>{{ item.name }}</span><span>{{ item.quantity }}</span></li>
       </ul>
-
-      <button mat-button (click)="tempAddZutat(selected)">Add Zutat</button>
 
       <button mat-button (click)="addRecipe(recName.value, imgSrc.value, recZubereitung.value, tempzutaten)">Add recipe</button>
 

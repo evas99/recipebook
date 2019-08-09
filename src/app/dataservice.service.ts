@@ -131,10 +131,17 @@ export class DataserviceService {
     return found; 
   }
 
+  initDemoShoppingList(){
+    var tempZutat = this.getZutat("Mehl");
+    console.log("hello from init Demo "+tempZutat);
+    tempZutat.quantity = 300;
+    this.addZutatToShoppingList([tempZutat]);
+  }
+
   constructor() {
     this.initCategories();
     this.initDemoZutaten();
     this.initDemoRecipes();
-
+    this.initDemoShoppingList();
    }
 }
