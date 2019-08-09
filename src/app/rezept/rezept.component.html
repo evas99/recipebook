@@ -1,4 +1,4 @@
-
+<!-- 
 <h2 class="name">{{actualRecipe.name}}</h2>
 
 <img src="https://s14-eu5.startpage.com/cgi-bin/serveimage?url=http%3A%2F%2Ft0.gstatic.com%2Fimages%3Fq%3Dtbn%3AANd9GcT6X1w4dbHcgj_O4hByDeHOYMIdanO-dqVvcagsWlXQbfGkzmTV&sp=94b415816f3fc3f0424dc7e9df495e16&anticache=648710"/>
@@ -16,4 +16,39 @@
   <div>{{ zutat.quantity }}</div>
 </li></ol>
 
-<button mat-button (click)="addZutatToShoppingList(actualRecipe.zutaten)">Alle Zutaten der Einkaufsliste hinzufügen.</button>
+<button mat-button (click)="addZutatToShoppingList(actualRecipe.zutaten)">Alle Zutaten der Einkaufsliste hinzufügen.</button> -->
+
+<div class="mainDiv">
+
+    <div class="cardContainer">
+  
+        <mat-card class="fullRecipeCard">
+          <img mat-card-image src={{actualRecipe.img}}>
+          <mat-card-header>
+            <mat-card-title>{{ actualRecipe.name}}</mat-card-title>
+            <!-- <mat-card-subtitle>recipe.difficulty</mat-card-subtitle> -->
+          </mat-card-header>
+          <!-- <img mat-card-image style="width: 218px; height: 122.08px;" src={{actualRecipe.img}}> -->
+          <mat-card-content >
+            <h4>Description</h4>
+            <span class="recipe-desc">{{ actualRecipe.description }}</span>
+            <h4>Zubereitung</h4>
+            <span>{{ actualRecipe.zubereitung }}</span>
+            <h4>Zutaten</h4>
+            <ol><li *ngFor="let zutat of actualRecipe.zutaten">
+                <div>{{ zutat.name }}</div>
+                <div>{{ zutat.quantity }}</div>
+            </li></ol>
+          </mat-card-content>
+          <mat-card-actions>
+              <!-- <button mat-button [routerLink]="['/rezept', recipe.id]" routerLinkActive="active">Details</button> -->
+          </mat-card-actions>
+        </mat-card>
+  
+    </div>
+
+    <button mat-button (click)="addZutatToShoppingList(actualRecipe.zutaten)">Alle Zutaten der Einkaufsliste hinzufügen.</button>
+  
+
+  
+  </div>
