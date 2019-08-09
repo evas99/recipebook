@@ -19,7 +19,7 @@ export class ShoppingListComponent implements OnInit {
     // console.log("adding Zutat to Shopping List: " + array[0]);
   }
 
-  displayedColumns: string[] = ['name','quantity', 'category'];
+  displayedColumns: string[] = ['name','quantity', 'unit', 'category'];
   dataSource = new MatTableDataSource(this.shoppingList);
 
   @ViewChild(MatSort, {static: true}) sort: MatSort;

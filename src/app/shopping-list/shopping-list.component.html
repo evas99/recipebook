@@ -24,6 +24,11 @@
           <td mat-cell *matCellDef="let element"> {{element.quantity}} </td>
         </ng-container>
 
+      <ng-container matColumnDef="unit">
+          <th mat-header-cell mat-sort-header *matHeaderCellDef> Unit </th>
+          <td mat-cell *matCellDef="let element"> {{element.unit}} </td>
+      </ng-container>
+
       <!-- Kategorie Column -->
       <ng-container matColumnDef="category">
         <th mat-header-cell mat-sort-header *matHeaderCellDef> Category </th>

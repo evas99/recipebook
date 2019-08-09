@@ -44,7 +44,7 @@ export class RezeptComponent implements OnInit {
   //   console.log("adding Zutat to Shopping List: " + array[0]);
   // }
 
-  displayedColumns: string[] = ['name','quantity'];
+  displayedColumns: string[] = ['name','quantity','unit'];
   dataSource = new MatTableDataSource(this.zutatenListe);
 
   ngOnInit() {
