@@ -31,9 +31,10 @@ export class StartComponent implements OnInit {
     this.dataService.addNewZutat(<Zutat>{name: zuName, unit: zuUnit, category: zuCategory});
   }
 
-  tempAddZutat(zuName: string, zuQuantity: number){
-    console.log("hello from tempAddZutat "+zuName);
-    this.tempzutaten.push(<Zutat>{name: zuName, quantity: zuQuantity});
+  tempAddZutat(zutat: Zutat, zuQuantity: number){
+    console.log("hello from tempAddZutat "+zutat);
+    zutat.quantity = zuQuantity; 
+    this.tempzutaten.push(zutat);
   }
 
   ngOnInit() {

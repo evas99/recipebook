@@ -11,6 +11,9 @@
 </div>
 
 <h4>Zutaten</h4>
-<ol><li *ngFor="let zutat of actualRecipe.zutaten">{{ zutat }}</li></ol>
+<ol><li *ngFor="let zutat of actualRecipe.zutaten">
+  <div>{{ zutat.name }}</div>
+  <div>{{ zutat.quantity }}</div>
+</li></ol>
 
 <button mat-button (click)="addZutatToShoppingList(actualRecipe.zutaten)">Alle Zutaten der Einkaufsliste hinzufügen.</button>
