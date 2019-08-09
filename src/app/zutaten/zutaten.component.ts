@@ -18,12 +18,13 @@ export class ZutatenComponent implements OnInit {
   constructor(private dataService: DataserviceService) { }
 
   zutatenListe: Zutat[];
+  categories: string[];
 
   displayedColumns: string[] = ['name', 'category'];
   dataSource = new MatTableDataSource(this.zutatenListe);
 
-  addZutat(zutat: Zutat){
-    this.dataService.addNewZutat(zutat);
+  addZutat(zuName: string, zuUnit: string, zuCategory: string){
+    this.dataService.addNewZutat(<Zutat>{name: zuName, unit: zuUnit, category: zuCategory});
   }
 
   @ViewChild(MatSort, {static: true}) sort: MatSort;
@@ -34,5 +35,6 @@ export class ZutatenComponent implements OnInit {
       this.dataSource.data = this.zutatenListe;   
       this.dataSource.sort = this.sort;
     });
+    this.dataService.categories.subscribe(element => this.categories = element);
   }
 }

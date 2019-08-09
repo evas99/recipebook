@@ -18,24 +18,24 @@ export class StartComponent implements OnInit {
   tempzutaten: Zutat[] = [];
   categories: string[];
 
-  addRecipe(recName, imgSrc, recZubereitung, zutatArray){
-    var actual = <Recipe>{name: recName, img: imgSrc, zubereitung: recZubereitung, zutaten: zutatArray};
-    this.dataService.addNewRecipe(actual);
-  }
+  // addRecipe(recName, imgSrc, recZubereitung, zutatArray){
+  //   var actual = <Recipe>{name: recName, img: imgSrc, zubereitung: recZubereitung, zutaten: zutatArray};
+  //   this.dataService.addNewRecipe(actual);
+  // }
 
   // addZutat(zuName: string, zuQuantity: number){
   //   this.dataService.addNewZutat(<Zutat>{name: zuName, quantity: zuQuantity});
   // }
 
-  addZutat(zuName: string, zuUnit: string, zuCategory: string){
-    this.dataService.addNewZutat(<Zutat>{name: zuName, unit: zuUnit, category: zuCategory});
-  }
+  // addZutat(zuName: string, zuUnit: string, zuCategory: string){
+  //   this.dataService.addNewZutat(<Zutat>{name: zuName, unit: zuUnit, category: zuCategory});
+  // }
 
-  tempAddZutat(zutat: Zutat, zuQuantity: number){
-    console.log("hello from tempAddZutat "+zutat);
-    zutat.quantity = zuQuantity; 
-    this.tempzutaten.push(zutat);
-  }
+  // tempAddZutat(zutat: Zutat, zuQuantity: number){
+  //   console.log("hello from tempAddZutat "+zutat);
+  //   zutat.quantity = zuQuantity; 
+  //   this.tempzutaten.push(zutat);
+  // }
 
   ngOnInit() {
     this.dataService.recipe.subscribe(recipes => this.rezepte = recipes);
