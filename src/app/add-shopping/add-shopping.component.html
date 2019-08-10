@@ -1,6 +1,7 @@
 <h2>{{data.name}}</h2>
+
 <mat-form-field>
     <input matNativeControl #quantity placeholder="Please enter quantity." value="">
 </mat-form-field>
-
-<button mat-button [mat-dialog-close]="true" (click)="addZutatToShoppingList(quantity.value)">Add Zutat</button>
+<p class="pUnit" >{{data.unit}}</p>
+<button mat-button class="addButtonGrey" [mat-dialog-close]="true" (click)="addZutatToShoppingList(quantity.value)">Add Zutat</button>
