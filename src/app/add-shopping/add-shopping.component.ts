@@ -18,6 +18,7 @@ export class AddShoppingComponent implements OnInit {
 
   addZutat(zuName: string, zuUnit: string, zuCategory: string){
     this.dataService.addNewZutat(<Zutat>{name: zuName, unit: zuUnit, category: zuCategory});
+    
   }
 
   addZutatToShoppingList(quantity){
