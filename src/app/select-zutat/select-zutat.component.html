@@ -6,7 +6,8 @@
       <mat-option *ngFor="let zutat of zutaten" [value]="zutat">
         {{zutat.name}}
       </mat-option>
-      <button class="addZutatButton" mat-button [routerLink]="['/add-zutat']" routerLinkActive="active">New Zutat</button>
+      <button mat-button [mat-dialog-close]="true"  class="addZutatButton" (click)="openAddZutatDialog()">New Zutat</button>
+      <!-- <button class="addZutatButton" mat-button [routerLink]="['/add-zutat']" routerLinkActive="active">New Zutat</button> -->
     </mat-select>
 </mat-form-field><br>
 

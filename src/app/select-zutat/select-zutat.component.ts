@@ -1,6 +1,9 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { DataserviceService } from '../dataservice.service';
 import { Zutat } from '../zutat';
+import { ActivatedRoute } from '@angular/router';
+import { MatDialog } from '@angular/material';
+import { AddZutatComponent } from '../add-zutat/add-zutat.component';
 
 @Component({
   selector: 'app-select-zutat',
@@ -9,7 +12,7 @@ import { Zutat } from '../zutat';
 })
 export class SelectZutatComponent implements OnInit {
 
-  constructor(private dataService: DataserviceService) { }
+  constructor(private dataService: DataserviceService, private route: ActivatedRoute, public dialog: MatDialog) { }
 
   zutaten: Zutat[];
   tempZutaten: Zutat[];
@@ -34,6 +37,10 @@ export class SelectZutatComponent implements OnInit {
   ngOnInit() {
     this.dataService.zutaten.subscribe(element => this.zutaten = element);
     this.dataService.tempZutaten.subscribe(element => this.tempZutaten = element);
+  }
+
+  openAddZutatDialog() {
+    this.dialog.open(AddZutatComponent);
   }
 
 }
