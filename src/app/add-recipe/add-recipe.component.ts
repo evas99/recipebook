@@ -36,7 +36,7 @@ export class AddRecipeComponent implements OnInit {
 
   tempAddZutat(zutat: Zutat){
     console.log("hello from tempAddZutat "+zutat);
-    zutat.quantity = this.htmlQuantity.nativeElement.value; 
+    zutat.quantity = Number(this.htmlQuantity.nativeElement.value); 
     this.tempzutaten.push(zutat);
 
     this.htmlQuantity.nativeElement.value = "";

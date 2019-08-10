@@ -7,7 +7,7 @@
 
       <mat-card class="recipeCard" *ngFor="let recipe of rezepte">
         <mat-card-header>
-          <mat-card-title>{{ recipe.name }}</mat-card-title>
+          <mat-card-title class="recipe-desc">{{ recipe.name }}</mat-card-title>
           <mat-card-subtitle class="recipe-desc">{{ recipe.description }}</mat-card-subtitle>
         </mat-card-header>
         <img mat-card-image style="width: 218px; height: 122.08px;" src={{recipe.img}}>
