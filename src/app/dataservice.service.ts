@@ -51,7 +51,37 @@ export class DataserviceService {
     return found; 
   }
 
-  addZutatToShoppingList(tempShoppingArray: Zutat[]){
+  addToShoppingList(tempzutaten: Zutat[]){
+    var shoppingArray: Zutat[];
+    this.shoppingList.subscribe(element => shoppingArray = element);
+    console.log("adding Zutat to Shopping List: ");
+    // var tempzutaten = this.actualRecipe.zutaten;
+
+    tempzutaten.forEach(element => {
+      var isTrue: boolean = false;
+      for (let index = 0; index < shoppingArray.length; index++) {
+        if(element.name == shoppingArray[index].name){
+          // console.log("Found matching element: "+ this.shoppingList[index].name);
+          var sum = shoppingArray[index].quantity + element.quantity;
+          shoppingArray[index].quantity = sum;
+          // console.log("Shopping: "+this.shoppingList[index].name +" "+ this.shoppingList[index].quantity);
+          // console.log("Element: "+element.name +" "+ element.quantity);
+          // console.log("sum: "+element.quantity+this.shoppingList[index].quantity);
+          // tempzutaten.splice(tempzutaten.indexOf(element),1); //id, anzahl elements to remove
+          isTrue = true;
+          break;
+        } else {
+          // this.dataService.addZutatToShoppingList([element]);
+        }
+        // this.dataService.addZutatToShoppingList([element]);
+      }
+      if (!isTrue){
+        this.addSingleZutatToShoppingList(element);
+      }
+    });
+  }
+
+  private addZutatToShoppingList(tempShoppingArray: Zutat[]){
     // console.log("Hello from adding Zutat to Shopping List in DataService");
     // shoppingArray.forEach(element => {
     //   console.log(element);
@@ -70,7 +100,7 @@ export class DataserviceService {
     
   }
 
-  addSingleZutatToShoppingList(tempShoppingElement: Zutat){
+  private addSingleZutatToShoppingList(tempShoppingElement: Zutat){
     if(tempShoppingElement != null){
       var tempZutatToStore = <Zutat>{
         name: tempShoppingElement.name, 

@@ -8,6 +8,7 @@ import { Observable } from 'rxjs';
 import { disconnect } from 'cluster';
 import { ActivatedRoute } from '@angular/router';
 import { AddZutatComponent } from '../add-zutat/add-zutat.component';
+import { AddShoppingComponent } from '../add-shopping/add-shopping.component';
 
 @Component({
   selector: 'app-zutaten',
@@ -42,5 +43,9 @@ export class ZutatenComponent implements OnInit {
 
   openAddZutatDialog() {
     this.dialog.open(AddZutatComponent);
+  }
+
+  openZutatToShoppingDialog(zutat: Zutat) {
+    this.dialog.open(AddShoppingComponent, { data: zutat });
   }
 }

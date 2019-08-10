@@ -35,32 +35,37 @@ export class RezeptComponent implements OnInit {
   }
 
   addZutatenToShoppingList(){
-    console.log("adding Zutat to Shopping List: ");
     var tempzutaten = this.actualRecipe.zutaten;
-
-    tempzutaten.forEach(element => {
-      var isTrue: boolean = false;
-      for (let index = 0; index < this.shoppingList.length; index++) {
-        if(element.name == this.shoppingList[index].name){
-          console.log("Found matching element: "+ this.shoppingList[index].name);
-          var sum = this.shoppingList[index].quantity + element.quantity;
-          this.shoppingList[index].quantity = sum;
-          console.log("Shopping: "+this.shoppingList[index].name +" "+ this.shoppingList[index].quantity);
-          console.log("Element: "+element.name +" "+ element.quantity);
-          console.log("sum: "+element.quantity+this.shoppingList[index].quantity);
-          // tempzutaten.splice(tempzutaten.indexOf(element),1); //id, anzahl elements to remove
-          isTrue = true;
-          break;
-        } else {
-          // this.dataService.addZutatToShoppingList([element]);
-        }
-        // this.dataService.addZutatToShoppingList([element]);
-      }
-      if (!isTrue){
-        this.dataService.addSingleZutatToShoppingList(element);
-      }
-    });
+    this.dataService.addToShoppingList(tempzutaten);
   }
+
+  // addToShoppingList(tempzutaten: Zutat[]){
+  //   console.log("adding Zutat to Shopping List: ");
+  //   // var tempzutaten = this.actualRecipe.zutaten;
+
+  //   tempzutaten.forEach(element => {
+  //     var isTrue: boolean = false;
+  //     for (let index = 0; index < this.shoppingList.length; index++) {
+  //       if(element.name == this.shoppingList[index].name){
+  //         // console.log("Found matching element: "+ this.shoppingList[index].name);
+  //         var sum = this.shoppingList[index].quantity + element.quantity;
+  //         this.shoppingList[index].quantity = sum;
+  //         // console.log("Shopping: "+this.shoppingList[index].name +" "+ this.shoppingList[index].quantity);
+  //         // console.log("Element: "+element.name +" "+ element.quantity);
+  //         // console.log("sum: "+element.quantity+this.shoppingList[index].quantity);
+  //         // tempzutaten.splice(tempzutaten.indexOf(element),1); //id, anzahl elements to remove
+  //         isTrue = true;
+  //         break;
+  //       } else {
+  //         // this.dataService.addZutatToShoppingList([element]);
+  //       }
+  //       // this.dataService.addZutatToShoppingList([element]);
+  //     }
+  //     if (!isTrue){
+  //       this.dataService.addSingleZutatToShoppingList(element);
+  //     }
+  //   });
+  // }
 
   // addZutatToShoppingList(array: string[]){
   //   this.dataService.addZutatToShoppingList(array);

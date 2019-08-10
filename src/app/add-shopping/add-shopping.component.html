@@ -1,0 +1,6 @@
+<h2>{{data.name}}</h2>
+<mat-form-field>
+    <input matNativeControl #quantity placeholder="Please enter quantity." value="">
+</mat-form-field>
+
+<button mat-button (click)="addZutatToShoppingList(quantity.value)">Add Zutat</button>

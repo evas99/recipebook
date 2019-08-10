@@ -12,6 +12,7 @@ import { StartComponent } from './start/start.component';
 import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import { AddRecipeComponent } from './add-recipe/add-recipe.component';
 import { AddZutatComponent } from './add-zutat/add-zutat.component';
+import { AddShoppingComponent } from './add-shopping/add-shopping.component';
 
 const modules = [ 
   BrowserAnimationsModule, 
@@ -36,7 +37,11 @@ const modules = [
     StartComponent,
     ShoppingListComponent,
     AddRecipeComponent,
-    AddZutatComponent
+    AddZutatComponent,
+    AddShoppingComponent
+  ],
+  entryComponents: [
+    AddShoppingComponent
   ],
   imports: [
     AppRoutingModule,

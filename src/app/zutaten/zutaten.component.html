@@ -19,7 +19,8 @@
       <!-- Kategorie Column -->
       <ng-container matColumnDef="category">
         <th mat-header-cell mat-sort-header *matHeaderCellDef> Category </th>
-        <td mat-cell *matCellDef="let element"> {{element.category}} </td>
+        <td mat-cell *matCellDef="let element">
+           {{element.category}} <button mat-fab (click)="openZutatToShoppingDialog(element)">add</button></td>
       </ng-container>
     
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
