@@ -14,10 +14,10 @@ export class ShoppingListComponent implements OnInit {
 
   shoppingList: Zutat[];
 
-  addZutatToShoppingList(array: Zutat[]){
-    this.dataService.addZutatToShoppingList(array);
-    // console.log("adding Zutat to Shopping List: " + array[0]);
-  }
+  // addZutatToShoppingList(array: Zutat[]){
+  //   this.dataService.addZutatToShoppingList(array);
+  //   // console.log("adding Zutat to Shopping List: " + array[0]);
+  // }
 
   displayedColumns: string[] = ['name','quantity', 'unit', 'category'];
   dataSource = new MatTableDataSource(this.shoppingList);
