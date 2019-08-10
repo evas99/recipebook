@@ -15,11 +15,20 @@ export class DataserviceService {
   zutatenSubject: BehaviorSubject<Zutat[]> = new BehaviorSubject<Zutat[]>([]);
   zutaten: Observable<Zutat[]> = this.zutatenSubject.asObservable();
 
+  tempZutatenSubject: BehaviorSubject<Zutat[]> = new BehaviorSubject<Zutat[]>([]);
+  tempZutaten: Observable<Zutat[]> = this.tempZutatenSubject.asObservable();
+
   shoppingSubject: BehaviorSubject<Zutat[]> = new BehaviorSubject<Zutat[]>([]);
   shoppingList: Observable<Zutat[]> = this.shoppingSubject.asObservable();
 
   categoriesSubject: BehaviorSubject<string[]> = new BehaviorSubject<string[]>([]);
   categories: Observable<string[]> = this.categoriesSubject.asObservable();
+
+  addTempZutat(zutat: Zutat){
+    const tempZutatValue = this.tempZutatenSubject.value;
+    tempZutatValue.push(zutat);
+    this.tempZutatenSubject.next(tempZutatValue);
+  }
 
   addNewZutat(zutat: Zutat){
     const zutatValue = this.zutatenSubject.value;

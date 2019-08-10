@@ -13,6 +13,7 @@ import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import { AddRecipeComponent } from './add-recipe/add-recipe.component';
 import { AddZutatComponent } from './add-zutat/add-zutat.component';
 import { AddShoppingComponent } from './add-shopping/add-shopping.component';
+import { SelectZutatComponent } from './select-zutat/select-zutat.component';
 
 const modules = [ 
   BrowserAnimationsModule, 
@@ -38,10 +39,12 @@ const modules = [
     ShoppingListComponent,
     AddRecipeComponent,
     AddZutatComponent,
-    AddShoppingComponent
+    AddShoppingComponent,
+    SelectZutatComponent
   ],
   entryComponents: [
-    AddShoppingComponent
+    AddShoppingComponent,
+    SelectZutatComponent
   ],
   imports: [
     AppRoutingModule,

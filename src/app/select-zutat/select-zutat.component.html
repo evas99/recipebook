@@ -1,0 +1,20 @@
+<h3>Select Zutat</h3>
+
+<mat-form-field>
+    <mat-label>Select Zutat</mat-label>
+    <mat-select #selection [(value)]="selected">
+      <mat-option *ngFor="let zutat of zutaten" [value]="zutat">
+        {{zutat.name}}
+      </mat-option>
+      <button class="addZutatButton" mat-button [routerLink]="['/add-zutat']" routerLinkActive="active">New Zutat</button>
+    </mat-select>
+</mat-form-field><br>
+
+<mat-form-field>
+    <input class="quantity" matNativeControl #htmlQuantity placeholder="Quantity" value="">
+</mat-form-field>
+
+<button mat-button class="addZutatButton" [mat-dialog-close]="true" (click)="tempAddZutat(selected)">
+    <i class="material-icons">check</i>
+    Click to add Zutat to Recipe
+  </button>
