@@ -6,3 +6,7 @@
 .inputFields > * {
 width: 100%;
 }
+
+::ng-deep .mat-dialog-container {
+  /* width: 250px; */
+}
