@@ -9,3 +9,11 @@ table {
     right: 50px;
     font-size: 25px;
 }
+
+::ng-deep .mat-cell.cdk-column-addBtn.mat-column-addBtn.ng-star-inserted{
+    width: 15px;
+}
+
+::ng-deep .mat-cell.cdk-column-addBtn.mat-column-categories.ng-star-inserted{
+    width: 30px;
+}
