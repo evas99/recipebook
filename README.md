@@ -1,7 +1,14 @@
-# Recipebook
+# Recipebook by Matrikelnummer: 5639302
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.9.
-Created by Matrikelnummer: 5639302
+
+## Navigation in my project
+
+'UML.svg' show you my UML diagramm.<br>
+'RecipeBook-Konzept.pdf' explains the concept of RecipeBook.<br>
+'PaperPrototype.jpg' shows my first concept and idea for RecipeBook.<br>
+
+Please notice that some variables (Zutat, ...) are in German. I know that this is a bad style. I am afraid of changing it, because maybe it would destroy the whole app.
 
 ## Development server
 
