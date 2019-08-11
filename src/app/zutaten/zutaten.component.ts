@@ -23,9 +23,11 @@ export class ZutatenComponent implements OnInit {
   zutatenListe: Zutat[];
   categories: string[];
 
+  //for creating a mat-table
   displayedColumns: string[] = ['name', 'unit', 'category', 'addBtn'];
   dataSource = new MatTableDataSource(this.zutatenListe);
 
+  //add new Zutat to zutat-observable in dataservice
   addZutat(zuName: string, zuUnit: string, zuCategory: string){
     this.dataService.addNewZutat(<Zutat>{name: zuName, unit: zuUnit, category: zuCategory});
   }
@@ -41,10 +43,12 @@ export class ZutatenComponent implements OnInit {
     this.dataService.categories.subscribe(element => this.categories = element);
   }
 
+  //open a dialog to add a zutat (name, unit, categorie)
   openAddZutatDialog() {
     this.dialog.open(AddZutatComponent);
   }
 
+  //open dialog to add a single zutat to shopping list
   openZutatToShoppingDialog(zutat: Zutat) {
     this.dialog.open(AddShoppingComponent, { data: zutat });
   }

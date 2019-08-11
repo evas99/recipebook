@@ -1,6 +1,7 @@
 # Recipebook
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.9.
+Created by Matrikelnummer: 5639302
 
 ## Development server
 

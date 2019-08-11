@@ -24,12 +24,21 @@ export class DataserviceService {
   categoriesSubject: BehaviorSubject<string[]> = new BehaviorSubject<string[]>([]);
   categories: Observable<string[]> = this.categoriesSubject.asObservable();
 
+  constructor() {
+    this.initCategories();
+    this.initDemoZutaten();
+    this.initDemoRecipes();
+    this.initDemoShoppingList();
+  }
+
+  //add Zutat in add-recipe-dialog - just to display zutaten in this dialog
   addTempZutat(zutat: Zutat){
     const tempZutatValue = this.tempZutatenSubject.value;
     tempZutatValue.push(zutat);
     this.tempZutatenSubject.next(tempZutatValue);
   }
 
+  //add Zutat to zutaten-observable
   addNewZutat(zutat: Zutat){
     const zutatValue = this.zutatenSubject.value;
     zutatValue.push(zutat);
@@ -42,6 +51,7 @@ export class DataserviceService {
     return recipeAr.length;
   }
 
+  //add new recipe to recipe-observable
   addNewRecipe(addingRecipe: Recipe){
     addingRecipe.id = this.getIndexForRecipe(this.recipe);
     const recipeValue = this.recipeSubject.value;
@@ -60,29 +70,22 @@ export class DataserviceService {
     return found; 
   }
 
+  //check, if Zutat already exists in ShoppingList, if it does, just change its quantity, else add Zutat
   addToShoppingList(tempzutaten: Zutat[]){
     var shoppingArray: Zutat[];
     this.shoppingList.subscribe(element => shoppingArray = element);
     console.log("adding Zutat to Shopping List: ");
-    // var tempzutaten = this.actualRecipe.zutaten;
 
     tempzutaten.forEach(element => {
       var isTrue: boolean = false;
       for (let index = 0; index < shoppingArray.length; index++) {
         if(element.name == shoppingArray[index].name){
-          // console.log("Found matching element: "+ this.shoppingList[index].name);
           var sum = shoppingArray[index].quantity + element.quantity;
           shoppingArray[index].quantity = sum;
-          // console.log("Shopping: "+this.shoppingList[index].name +" "+ this.shoppingList[index].quantity);
-          // console.log("Element: "+element.name +" "+ element.quantity);
-          // console.log("sum: "+element.quantity+this.shoppingList[index].quantity);
-          // tempzutaten.splice(tempzutaten.indexOf(element),1); //id, anzahl elements to remove
           isTrue = true;
           break;
         } else {
-          // this.dataService.addZutatToShoppingList([element]);
         }
-        // this.dataService.addZutatToShoppingList([element]);
       }
       if (!isTrue){
         this.addSingleZutatToShoppingList(element);
@@ -90,11 +93,8 @@ export class DataserviceService {
     });
   }
 
+  //add Zutat[] to Shopping List - you need to validat with addToShoppingList, if Zutat already exists in shopping list
   private addZutatToShoppingList(tempShoppingArray: Zutat[]){
-    // console.log("Hello from adding Zutat to Shopping List in DataService");
-    // shoppingArray.forEach(element => {
-    //   console.log(element);
-    // });
     tempShoppingArray.forEach(el => {
         var tempZutatToStore = <Zutat>{
           name: el.name, 
@@ -106,9 +106,9 @@ export class DataserviceService {
         shoppingValue.push(tempZutatToStore);
         this.shoppingSubject.next(shoppingValue);
     });
-    
   }
 
+  //add Zutat to Shopping List - you need to validat with addToShoppingList, if Zutat already exists in shopping list
   private addSingleZutatToShoppingList(tempShoppingElement: Zutat){
     if(tempShoppingElement != null){
       var tempZutatToStore = <Zutat>{
@@ -123,7 +123,8 @@ export class DataserviceService {
     }
   }
 
-  initCategories(){
+  //to store initial data
+  private initCategories(){
     var tempArr: string[] = ["Obst", "Gemüse", "Backen", "Gewürze"];
     tempArr.forEach(element => {
       const catValue = this.categoriesSubject.value;
@@ -133,7 +134,8 @@ export class DataserviceService {
     });
   }
 
-  initDemoRecipes(){
+  //to store initial data
+  private initDemoRecipes(){
     var tempZutat = this.getZutat("Mehl");
     console.log("hello from init Demo "+tempZutat);
     tempZutat.quantity = 300;
@@ -166,6 +168,7 @@ export class DataserviceService {
       zutaten: demoZutaten2 });
   }
 
+  //to store initial data
   initDemoZutaten(){
     this.addNewZutat(<Zutat> {name: "Mehl", unit:"Gramm", category: "Backen"});
     this.addNewZutat(<Zutat> {name: "Zucker", unit:"Gramm", category: "Backen"});
@@ -191,7 +194,7 @@ export class DataserviceService {
     return found; 
   }
 
-  initDemoShoppingList(){
+  private initDemoShoppingList(){
     var actual = this.getZutat("Mehl");
     if(actual != null){
       var tempZutatToStore = <Zutat>{name: actual.name, category: actual.category, unit: actual.unit, quantity: actual.quantity};
@@ -200,11 +203,4 @@ export class DataserviceService {
       this.addZutatToShoppingList([tempZutatToStore]);
     }
   }
-
-  constructor() {
-    this.initCategories();
-    this.initDemoZutaten();
-    this.initDemoRecipes();
-    this.initDemoShoppingList();
-   }
 }
