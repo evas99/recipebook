@@ -16,6 +16,7 @@ export class AddZutatComponent implements OnInit {
   zutatenListe: Zutat[];
   categories: string[];
 
+  //add Zutat to zutat-observable
   addZutat(zuName: string, zuUnit: string, zuCategory: string){
     this.dataService.addNewZutat(<Zutat>{name: zuName, unit: zuUnit, category: zuCategory});
   }

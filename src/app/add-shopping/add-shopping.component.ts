@@ -10,18 +10,13 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 })
 export class AddShoppingComponent implements OnInit {
 
-  constructor(private dataService: DataserviceService, @Inject(MAT_DIALOG_DATA) public data: any) { }
-
   zutatenListe: Zutat[];
   categories: string[];
   shoppingList: Zutat[];
 
-  addZutat(zuName: string, zuUnit: string, zuCategory: string){
-    this.dataService.addNewZutat(<Zutat>{name: zuName, unit: zuUnit, category: zuCategory});
-    
-  }
+  constructor(private dataService: DataserviceService, @Inject(MAT_DIALOG_DATA) public data: any) { }
 
-  addZutatToShoppingList(quantity){
+  addZutatToShoppingList(quantity: string){
     var tempZutat = this.data;
     tempZutat.quantity = Number(quantity);
     console.log("hello from add-shopping: tempZutat = "+tempZutat.name + " "+tempZutat.quantity);

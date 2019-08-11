@@ -15,47 +15,28 @@ import { SelectZutatComponent } from '../select-zutat/select-zutat.component';
 })
 export class AddRecipeComponent implements OnInit {
 
-  constructor(private dataService: DataserviceService, private route: ActivatedRoute, public dialog: MatDialog) { }
-
-@ViewChild('zuQuantity', {static:false}) htmlQuantity: ElementRef;
-@ViewChild('selection', {static:false}) htmlSelection: ElementRef;
+  @ViewChild('zuQuantity', {static:false}) htmlQuantity: ElementRef;
   
   rezepte: Recipe[];
   zutaten: Zutat[];
   tempzutaten: Zutat[];
   categories: string[];
+  
+  constructor(private dataService: DataserviceService, private route: ActivatedRoute, public dialog: MatDialog) { }
 
+  //add new recipe to recipe-observable
   addRecipe(recName, recDesc, imgSrc, recZubereitung, zutatArray){
     var actual = <Recipe>{name: recName, description: recDesc, img: imgSrc, zubereitung: recZubereitung, zutaten: zutatArray};
     this.dataService.addNewRecipe(actual);
   }
-
-  // addZutat(zuName: string, zuQuantity: number){
-  //   this.dataService.addNewZutat(<Zutat>{name: zuName, quantity: zuQuantity});
-  // }
-
-  // addZutat(zuName: string, zuUnit: string, zuCategory: string){
-  //   this.dataService.addNewZutat(<Zutat>{name: zuName, unit: zuUnit, category: zuCategory});
-  // }
-
-  // tempAddZutat(zutat: Zutat){
-  //   console.log("hello from tempAddZutat "+zutat);
-  //   zutat.quantity = Number(this.htmlQuantity.nativeElement.value); 
-  //   this.tempzutaten.push(zutat);
-
-  //   this.htmlQuantity.nativeElement.value = "";
-  //   // this.htmlSelection.nativeElement.selected = "";
-  // }
-
 
   ngOnInit() {
     this.dataService.recipe.subscribe(recipes => this.rezepte = recipes);
     this.dataService.zutaten.subscribe(element => this.zutaten = element);
     this.dataService.categories.subscribe(element => this.categories = element);
     this.dataService.tempZutaten.subscribe(element => this.tempzutaten = element); 
-    // this.dataService.addNewRecipe(<Recipe>{name: "Erdbeerkuchen", id: 12});
   }
-
+  //open dialog to select zutaten
   openAddZutatDialog(zutat: Zutat) {
     this.dialog.open(SelectZutatComponent);
   }
