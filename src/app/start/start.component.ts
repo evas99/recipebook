@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataserviceService } from '../dataservice.service';
 import { Recipe } from '../recipe';
-import { RecipeOverviewComponent } from '../recipe-overview/recipe-overview.component';
 import { Zutat } from '../zutat';
 import { ActivatedRoute } from '@angular/router';
 import { MatDialog } from '@angular/material';
